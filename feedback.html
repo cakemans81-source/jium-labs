@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JIUM LABS — 베타 피드백 보드</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="components.css" />
+<link rel="stylesheet" href="portfolio.css" />
+<link rel="stylesheet" href="feedback.css" />
+</head>
+<body data-theme="light" data-accent="indigo" data-hero="default">
+  <a class="skip" href="#main">본문 바로가기</a>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html" aria-label="JIUM LABS 홈">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="3" width="8" height="8" rx="1.2" />
+            <rect x="13" y="3" width="8" height="8" rx="1.2" />
+            <rect x="3" y="13" width="8" height="8" rx="1.2" />
+            <path d="M13 17h8M17 13v8" />
+          </svg>
+        </span>
+        <span class="brand__name">JIUMLABS</span>
+      </a>
+      <nav class="nav__links" aria-label="주 메뉴">
+        <a href="index.html#projects">프로젝트</a>
+        <a href="index.html#approach">철학</a>
+        <a href="index.html#process">작업 방식</a>
+        <a href="feedback.html" aria-current="page" class="is-current">피드백</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--ghost" href="index.html#projects">프로젝트 보기</a>
+        <a class="btn btn--primary" href="#new" id="open-new">새 피드백 작성 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="fb-hero section--flush">
+      <div class="container">
+        <span class="eyebrow">베타 피드백 보드</span>
+        <h1 class="fb-hero__h1">베타 테스터의<br/><em>목소리.</em></h1>
+        <p class="fb-hero__p">JIUM LABS의 모든 제품은 베타 테스터의 피드백으로 다듬어집니다. 누구나 의견을 남길 수 있고, 모든 처리 상태가 공개됩니다.</p>
+        <div class="fb-hero__stats">
+          <div><span class="mono fb-hero__k">총 피드백</span><strong id="stat-total">—</strong></div>
+          <div><span class="mono fb-hero__k">진행 중</span><strong id="stat-progress">—</strong></div>
+          <div><span class="mono fb-hero__k">반영 완료</span><strong id="stat-done">—</strong></div>
+          <div><span class="mono fb-hero__k">검토 대기</span><strong id="stat-open">—</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fb-board">
+      <div class="container">
+        <div class="fb-toolbar">
+          <div class="fb-filters" role="group" aria-label="프로젝트 필터">
+            <button class="fb-chip is-on" data-filter="project" data-value="all">전체</button>
+            <button class="fb-chip" data-filter="project" data-value="threadr">Threadr</button>
+            <button class="fb-chip" data-filter="project" data-value="loomi">Loomi</button>
+            <button class="fb-chip" data-filter="project" data-value="stackbench">Stackbench</button>
+            <button class="fb-chip" data-filter="project" data-value="notedeck">Notedeck</button>
+          </div>
+          <div class="fb-tools">
+            <div class="fb-tabs" role="group" aria-label="상태">
+              <button class="fb-tab is-on" data-filter="status" data-value="all">전체</button>
+              <button class="fb-tab" data-filter="status" data-value="open">검토 중</button>
+              <button class="fb-tab" data-filter="status" data-value="progress">진행 중</button>
+              <button class="fb-tab" data-filter="status" data-value="done">완료</button>
+              <button class="fb-tab" data-filter="status" data-value="rejected">반려</button>
+            </div>
+            <select class="fb-sort" id="sort" aria-label="정렬">
+              <option value="votes">인기순</option>
+              <option value="recent">최신순</option>
+              <option value="comments">댓글 많은 순</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fb-list" id="fb-list"></div>
+
+        <div class="fb-empty" id="fb-empty" hidden>
+          <p>표시할 피드백이 없습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="fb-cta">
+      <div class="container fb-cta__inner">
+        <div>
+          <span class="eyebrow">참여하기</span>
+          <h2>당신의 한 줄이<br/>다음 릴리스가 됩니다.</h2>
+          <p>버그, 개선 제안, 새 기능 아이디어 무엇이든 환영합니다. 모든 피드백은 24시간 안에 확인합니다.</p>
+        </div>
+        <button class="btn btn--accent btn--lg" id="open-new-2">새 피드백 작성 <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+  </main>
+
+  <!-- NEW FEEDBACK MODAL -->
+  <div class="fb-modal" id="fb-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="fb-modal-title">
+    <div class="fb-modal__backdrop" data-close></div>
+    <div class="fb-modal__panel">
+      <header class="fb-modal__head">
+        <div>
+          <span class="eyebrow">새 피드백</span>
+          <h2 id="fb-modal-title">의견을 남겨주세요</h2>
+        </div>
+        <button class="fb-modal__close" data-close aria-label="닫기">×</button>
+      </header>
+      <form class="fb-form" id="fb-form">
+        <div class="fb-field">
+          <label for="f-project" class="mono">프로젝트</label>
+          <select id="f-project" required>
+            <option value="threadr">Threadr</option>
+            <option value="loomi">Loomi</option>
+            <option value="stackbench">Stackbench</option>
+            <option value="notedeck">Notedeck</option>
+            <option value="general">스튜디오 전반</option>
+          </select>
+        </div>
+        <div class="fb-field">
+          <label for="f-type" class="mono">유형</label>
+          <div class="fb-radio">
+            <label><input type="radio" name="type" value="bug" /> 버그</label>
+            <label><input type="radio" name="type" value="feature" checked /> 기능 제안</label>
+            <label><input type="radio" name="type" value="improve" /> 개선</label>
+            <label><input type="radio" name="type" value="other" /> 기타</label>
+          </div>
+        </div>
+        <div class="fb-field">
+          <label for="f-title" class="mono">제목</label>
+          <input id="f-title" type="text" required maxlength="80" placeholder="예: 받은편지함에서 다중 선택으로 일괄 답장하기" />
+        </div>
+        <div class="fb-field">
+          <label for="f-body" class="mono">상세 내용</label>
+          <textarea id="f-body" rows="6" required maxlength="800" placeholder="현재 동작, 기대한 동작, 재현 방법, 또는 제안의 배경을 적어주세요."></textarea>
+        </div>
+        <div class="fb-field">
+          <label for="f-name" class="mono">표시 이름 <span class="fb-opt">(선택)</span></label>
+          <input id="f-name" type="text" maxlength="24" placeholder="익명" />
+        </div>
+        <div class="fb-form__foot">
+          <p class="fb-form__fine">제출하면 보드에 공개적으로 표시됩니다. 민감한 정보는 hello@jium.io 로 보내주세요.</p>
+          <div class="fb-form__actions">
+            <button type="button" class="btn btn--outline" data-close>취소</button>
+            <button type="submit" class="btn btn--accent">제출 <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="3" y="3" width="8" height="8" rx="1.2" />
+              <rect x="13" y="3" width="8" height="8" rx="1.2" />
+              <rect x="3" y="13" width="8" height="8" rx="1.2" />
+              <path d="M13 17h8M17 13v8" />
+            </svg>
+          </span>
+          <span class="brand__name">JIUMLABS</span>
+        </div>
+        <p class="footer__tag">필요한 도구를 짓다.<br/>JIUM LABS는 소규모 팀을 위한 SaaS를 설계합니다.</p>
+        <p class="footer__legal">© 2026 JIUM LABS · 사업자등록번호 000-00-00000</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>프로젝트</h4>
+          <a href="#">Threadr ↗</a>
+          <a href="#">Loomi ↗</a>
+          <a href="#">Stackbench ↗</a>
+          <a href="#">Notedeck ↗</a>
+        </div>
+        <div>
+          <h4>스튜디오</h4>
+          <a href="index.html#approach">철학</a>
+          <a href="index.html#process">작업 방식</a>
+          <a href="#">블로그</a>
+          <a href="index.html#cta">문의</a>
+        </div>
+        <div>
+          <h4>리소스</h4>
+          <a href="feedback.html">피드백 보드</a>
+          <a href="#">변경 사항</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="#">개인정보처리방침</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="tweaks.js"></script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="feedback.js"></script>
+</body>
+</html>

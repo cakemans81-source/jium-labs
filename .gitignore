@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local env (실수로 secret 들어가지 않도록)
+.env
+.env.local
+.env.*.local
+
+# Vercel
+.vercel/
+
+# Node
+node_modules/
