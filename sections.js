@@ -41,7 +41,7 @@ const HERO = {
       </div>
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          ${["Threadr / 고객 대화", "Loomi / 자동화 워크플로우", "Stackbench / 운영 대시보드", "Notedeck / 회의록", "— JIUM 09"].concat(["Threadr / 고객 대화", "Loomi / 자동화 워크플로우", "Stackbench / 운영 대시보드", "Notedeck / 회의록", "— JIUM 09"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
+          ${["PartStream / 자동 견적", "Loomi / 자동화 워크플로우", "Stackbench / 운영 대시보드", "Notedeck / 회의록", "— JIUM 09"].concat(["PartStream / 자동 견적", "Loomi / 자동화 워크플로우", "Stackbench / 운영 대시보드", "Notedeck / 회의록", "— JIUM 09"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
         </div>
       </div>
     </section>
@@ -114,7 +114,7 @@ function heroEditorArt() {
       <div class="art__doc">
         <div class="art__tag mono">결정</div>
         <div class="art__h">Q2 출시 범위 확정</div>
-        <p class="art__p">Threadr 베타는 5월 27일에 한정 공개. Loomi는 6월 둘째 주 일반 출시.</p>
+        <p class="art__p">PartStream 베타는 5월 27일에 한정 공개. Loomi는 6월 둘째 주 일반 출시.</p>
         <div class="art__tag mono">담당</div>
         <div class="art__people">
           <span class="art__chip"><span class="art__avatar" style="background:oklch(0.7 0.09 30)"></span>현우</span>

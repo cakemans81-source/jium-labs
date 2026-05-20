@@ -1,7 +1,7 @@
 /* JIUM LABS — feedback board logic (Supabase backend) */
 (function () {
   const PROJECTS = {
-    threadr:    { name: "Threadr",    color: "oklch(0.55 0.15 260)" },
+    threadr:    { name: "PartStream", color: "oklch(0.55 0.15 260)" },
     loomi:      { name: "Loomi",      color: "oklch(0.58 0.13 158)" },
     stackbench: { name: "Stackbench", color: "oklch(0.70 0.15 70)"  },
     notedeck:   { name: "Notedeck",   color: "oklch(0.62 0.16 18)"  },

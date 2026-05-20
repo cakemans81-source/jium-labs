@@ -122,7 +122,7 @@ document.getElementById("cta-slot").innerHTML = `
         <span class="fb-promo__pdot" style="background:oklch(0.55 0.15 260)"></span>
         <div>
           <div class="fb-promo__t">받은편지함 다중 선택으로 일괄 답장</div>
-          <div class="fb-promo__m mono">Threadr · 진행 중 · 38</div>
+          <div class="fb-promo__m mono">PartStream · 진행 중 · 38</div>
         </div>
       </div>
       <div class="fb-promo__card">
