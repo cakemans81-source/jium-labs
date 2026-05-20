@@ -169,12 +169,12 @@ document.getElementById("strip-slot").innerHTML = `
 /* ---------- PROJECTS (메인 포트폴리오) ---------- */
 const PROJECTS = [
   {
-    n: "01", name: "Threadr", domain: "threadr.jium.io",
+    n: "01", name: "PartStream", domain: "partstream-pi.vercel.app",
     status: "live", statusLabel: "운영 중",
-    tagline: "고객 대화를 받은편지함 하나로.",
-    desc: "이메일·카카오톡·문의 폼을 한 곳에 모아 팀이 함께 답합니다. 작은 팀이 큰 회사처럼 응대할 수 있게 합니다.",
-    tags: ["고객 지원", "공유 받은편지함", "B2B"],
-    art: "inbox",
+    tagline: "3D 파일을 올리면 견적이 바로 나옵니다.",
+    desc: "STL·STEP 파일을 자동 분석해 부피·면적·가공 난이도를 추출하고, 재료비·가공비·셋업비까지 투명하게 산출합니다. 거래명세서 PDF와 월정산 자동화로 견적부터 정산까지 한 흐름.",
+    tags: ["제조 견적", "3D 자동 분석", "B2B"],
+    art: "quote",
     accent: "oklch(0.55 0.15 260)",
   },
   {
@@ -251,6 +251,26 @@ function projectArt(kind, accent) {
       <div class="pa__doc-todo"><span class="pa__chk" style="background:${accent}"></span> 도메인 전환</div>
       <div class="pa__doc-todo"><span class="pa__chk"></span> 가격표 작성</div>
       <div class="pa__doc-todo"><span class="pa__chk"></span> 베타 안내 메일</div>
+    </div>`;
+  }
+  if (kind === "quote") {
+    return `<div class="pa pa--doc" style="gap:6px;">
+      <div class="pa__doc-tag mono" style="color:${accent}">UPLOAD · part_v2.stl</div>
+      <div style="display:flex;align-items:center;gap:10px;margin:2px 0 6px;">
+        <span style="width:34px;height:34px;border:1.5px solid ${accent};border-radius:4px;position:relative;flex:0 0 auto;">
+          <span style="position:absolute;top:6px;left:6px;width:18px;height:18px;border:1.5px solid ${accent};border-radius:2px;transform:rotate(35deg);transform-origin:center;opacity:0.8;"></span>
+        </span>
+        <div style="font-size:12px;color:#666;line-height:1.4;">
+          분석 완료 · 32.4&nbsp;cm³<br/>
+          <span class="mono" style="font-size:11px;opacity:0.6;">CNC · 알루미늄 6061</span>
+        </div>
+      </div>
+      <div class="pa__doc-line" style="margin:2px 0;"></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#666;"><span>재료비</span><span class="mono">₩ 12,400</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#666;"><span>가공비</span><span class="mono">₩ 18,200</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#666;"><span>난이도</span><span class="mono">₩  3,800</span></div>
+      <div class="pa__doc-line" style="margin:2px 0;background:rgba(0,0,0,0.1);"></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:${accent};margin-top:2px;"><span>견적 합계</span><span class="mono">₩ 34,400</span></div>
     </div>`;
   }
   return "";
