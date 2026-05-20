@@ -41,6 +41,8 @@
   // ---- state
   let items = [];
   let myVotes = {}; // { feedback_id: true } — 이 브라우저로 추천한 항목
+  let commentsCache = {}; // { feedback_id: [comments] } — 펼친 적 있는 댓글 캐시
+  let openThreads = new Set(); // 현재 펼쳐진 댓글 영역
   let filter = { project: "all", status: "all" };
   let sort = "votes";
 
@@ -81,6 +83,40 @@
     const { error } = await supabase.from("feedback").insert(item);
     if (error) { console.error("[JIUM] insertItem error", error); alert("저장에 실패했습니다. 잠시 후 다시 시도해주세요."); return false; }
     return true;
+  }
+
+  async function loadComments(feedbackId) {
+    if (!supabase) return [];
+    const { data, error } = await supabase
+      .from("feedback_comments")
+      .select("id, author, body, created_at")
+      .eq("feedback_id", feedbackId)
+      .order("created_at", { ascending: true });
+    if (error) { console.error("[JIUM] loadComments error", error); return []; }
+    commentsCache[feedbackId] = data || [];
+    return commentsCache[feedbackId];
+  }
+
+  async function insertComment(feedbackId, author, body) {
+    if (!supabase) return null;
+    const payload = {
+      feedback_id: feedbackId,
+      author: author || "익명",
+      body: body,
+      voter_id: voterId,
+    };
+    const { data, error } = await supabase
+      .from("feedback_comments")
+      .insert(payload)
+      .select()
+      .single();
+    if (error) { console.error("[JIUM] insertComment error", error); alert("댓글 저장에 실패했습니다."); return null; }
+    // 캐시와 카드의 카운트도 즉시 갱신 (트리거가 DB.comments 갱신은 처리)
+    if (!commentsCache[feedbackId]) commentsCache[feedbackId] = [];
+    commentsCache[feedbackId].push(data);
+    const item = items.find(x => x.id === feedbackId);
+    if (item) item.comments = (item.comments || 0) + 1;
+    return data;
   }
 
   async function toggleVote(id) {
@@ -167,13 +203,43 @@
             <span class="fb-dot">·</span>
             <span>${fmtDate(it.date)}</span>
             <span class="fb-dot">·</span>
-            <span class="fb-comments" aria-label="댓글">
+            <button type="button" class="fb-comments fb-comments--btn" data-id="${it.id}" aria-expanded="${openThreads.has(it.id) ? 'true' : 'false'}" aria-label="댓글 펼치기">
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.7 7.4L3 21l1.6-4.7A8.5 8.5 0 1 1 21 11.5z"/></svg>
-              ${it.comments||0}
-            </span>
+              <span class="fb-comments__n">${it.comments||0}</span>
+            </button>
           </div>
+          ${openThreads.has(it.id) ? thread(it) : ""}
         </div>
       </article>
+    `;
+  }
+
+  function thread(it) {
+    const list = commentsCache[it.id];
+    const listHtml = !list
+      ? `<div class="fb-thread__loading mono">불러오는 중…</div>`
+      : list.length === 0
+        ? `<div class="fb-thread__empty mono">첫 댓글을 남겨보세요.</div>`
+        : list.map(c => `
+            <div class="fb-comment">
+              <div class="fb-comment__head">
+                <span class="fb-comment__author">${escapeHtml(c.author || "익명")}</span>
+                <span class="fb-dot">·</span>
+                <span class="fb-comment__date mono">${fmtDate(c.created_at)}</span>
+              </div>
+              <div class="fb-comment__body">${escapeHtml(c.body)}</div>
+            </div>
+          `).join("");
+
+    return `
+      <div class="fb-thread" data-id="${it.id}">
+        <div class="fb-thread__list">${listHtml}</div>
+        <form class="fb-thread__form" data-id="${it.id}">
+          <input type="text" name="author" class="fb-thread__author" placeholder="이름 (선택)" maxlength="20" />
+          <textarea name="body" class="fb-thread__body" placeholder="댓글을 남겨주세요…" rows="2" maxlength="500" required></textarea>
+          <button type="submit" class="fb-thread__submit">등록</button>
+        </form>
+      </div>
     `;
   }
 
@@ -183,6 +249,44 @@
         btn.disabled = true;
         await toggleVote(btn.dataset.id);
         render();
+      });
+    });
+
+    // 댓글 영역 토글 (펼치기/접기)
+    document.querySelectorAll(".fb-comments--btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.id;
+        if (openThreads.has(id)) {
+          openThreads.delete(id);
+          render();
+        } else {
+          openThreads.add(id);
+          if (!commentsCache[id]) {
+            // 비동기 로드 — 일단 펼침 (스피너 표시) 한 뒤 데이터 도착하면 다시 그림
+            render();
+            await loadComments(id);
+          }
+          render();
+        }
+      });
+    });
+
+    // 댓글 작성 폼
+    document.querySelectorAll(".fb-thread__form").forEach(form => {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const id = form.dataset.id;
+        const author = form.querySelector(".fb-thread__author").value.trim();
+        const body = form.querySelector(".fb-thread__body").value.trim();
+        if (!body) return;
+        const submitBtn = form.querySelector(".fb-thread__submit");
+        submitBtn.disabled = true;
+        const created = await insertComment(id, author, body);
+        submitBtn.disabled = false;
+        if (created) {
+          form.querySelector(".fb-thread__body").value = "";
+          render();
+        }
       });
     });
   }

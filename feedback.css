@@ -121,3 +121,103 @@
 @media (max-width: 720px) {
   .fb-card { grid-template-columns: 52px 1fr; padding: 14px 14px; }
 }
+
+/* ---------- COMMENTS (스레드) ---------- */
+
+/* 댓글 토글 버튼 — 카드 footer 의 fb-comments 가 button 으로 변경 */
+.fb-comments--btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: transparent; border: 0; padding: 4px 8px; margin: -4px -8px -4px 0;
+  border-radius: 999px; cursor: pointer; color: inherit; font: inherit;
+  font-size: 12.5px; line-height: 1; transition: background .15s, color .15s;
+}
+.fb-comments--btn:hover { background: var(--bg-sunken); color: var(--fg); }
+.fb-comments--btn[aria-expanded="true"] { background: color-mix(in oklab, var(--accent) 10%, transparent); color: var(--accent); }
+.fb-comments--btn[aria-expanded="true"] svg { color: var(--accent); }
+.fb-comments__n { font-family: var(--font-mono); font-size: 11px; }
+
+/* 펼쳐진 댓글 영역 */
+.fb-thread {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  display: flex; flex-direction: column; gap: 12px;
+  animation: fb-thread-in 0.18s ease-out;
+}
+@keyframes fb-thread-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 댓글 리스트 */
+.fb-thread__list { display: flex; flex-direction: column; gap: 10px; }
+.fb-thread__loading,
+.fb-thread__empty {
+  font-size: 12px; color: var(--fg-subtle);
+  letter-spacing: 0.02em; padding: 4px 2px;
+}
+
+.fb-comment {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 10px 12px;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.fb-comment__head {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11.5px; color: var(--fg-subtle);
+}
+.fb-comment__author { color: var(--fg-muted); font-weight: 500; }
+.fb-comment__date { font-size: 11px; }
+.fb-comment__body {
+  font-size: 13.5px; color: var(--fg);
+  line-height: 1.55; word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* 댓글 작성 폼 */
+.fb-thread__form {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  grid-template-areas: "author body submit";
+  gap: 8px;
+  align-items: start;
+}
+.fb-thread__author {
+  grid-area: author;
+  height: 36px; padding: 0 12px;
+  font: inherit; font-size: 13px; color: var(--fg);
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; outline: none;
+  transition: border-color .15s;
+}
+.fb-thread__author:focus { border-color: var(--accent); }
+.fb-thread__body {
+  grid-area: body;
+  min-height: 36px; padding: 9px 12px;
+  font: inherit; font-size: 13px; color: var(--fg);
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; outline: none; resize: vertical;
+  font-family: inherit; line-height: 1.5;
+  transition: border-color .15s;
+}
+.fb-thread__body:focus { border-color: var(--accent); }
+.fb-thread__submit {
+  grid-area: submit;
+  height: 36px; padding: 0 18px;
+  font: inherit; font-size: 13px; font-weight: 500;
+  background: var(--fg); color: var(--bg);
+  border: 0; border-radius: 8px; cursor: pointer;
+  transition: opacity .15s, transform .08s;
+}
+.fb-thread__submit:hover { opacity: 0.88; }
+.fb-thread__submit:active { transform: translateY(1px); }
+.fb-thread__submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+@media (max-width: 600px) {
+  .fb-thread__form {
+    grid-template-columns: 1fr;
+    grid-template-areas: "author" "body" "submit";
+  }
+  .fb-thread__submit { justify-self: end; }
+}
