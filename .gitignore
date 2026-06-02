@@ -23,3 +23,6 @@ npm-debug.log*
 
 # Node
 node_modules/
+
+# Claude Code 작업 가이드 (로컬 전용, 배포/커밋 제외)
+CLAUDE.md
