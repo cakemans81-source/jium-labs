@@ -15,7 +15,7 @@ const HERO = {
             <a class="btn btn--outline btn--lg" href="#cta">협업 문의</a>
           </div>
           <ul class="hero__meta">
-            <li><span class="mono">서울 · 2026</span></li>
+            <li><span class="mono">경기 화성 · 2026</span></li>
             <li><span class="mono">프로젝트 4종</span></li>
             <li><span class="mono">독립 도메인 운영</span></li>
           </ul>
@@ -155,7 +155,7 @@ document.getElementById("strip-slot").innerHTML = `
       </div>
       <div class="strip__cell">
         <span class="strip__k mono">설립</span>
-        <span class="strip__v">2026 <span class="strip__sub">· 서울</span></span>
+        <span class="strip__v">2026 <span class="strip__sub">· 경기 화성</span></span>
       </div>
       <div class="strip__cell">
         <span class="strip__k mono">접근 방식</span>
