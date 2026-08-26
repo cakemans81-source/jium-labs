@@ -41,6 +41,8 @@
 .proj__status--beta .proj__pulse { background: oklch(0.55 0.15 260); }
 .proj__status--dev { color: oklch(0.55 0.13 70); border-color: color-mix(in oklab, oklch(0.55 0.13 70) 22%, var(--border)); background: color-mix(in oklab, oklch(0.55 0.13 70) 8%, var(--bg-elev)); }
 .proj__status--dev .proj__pulse { background: oklch(0.65 0.14 70); }
+.proj__status--work { color: oklch(0.48 0.12 135); border-color: color-mix(in oklab, oklch(0.62 0.16 135) 28%, var(--border)); background: color-mix(in oklab, oklch(0.62 0.16 135) 10%, var(--bg-elev)); }
+.proj__status--work .proj__pulse { background: oklch(0.62 0.16 135); box-shadow: 0 0 0 0 oklch(0.62 0.16 135 / 0.5); animation: jium-pulse 1.8s ease-out infinite; }
 .proj__status--soon { color: var(--fg-muted); }
 @keyframes jium-pulse { 0% { box-shadow: 0 0 0 0 oklch(0.6 0.14 158 / 0.6); } 100% { box-shadow: 0 0 0 10px oklch(0.6 0.14 158 / 0); } }
 
@@ -110,6 +112,20 @@
 .pa__doc-line.w60 { max-width: 60%; }
 .pa__doc-todo { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--fg); padding: 2px 0; }
 .pa__chk { width: 14px; height: 14px; border-radius: 4px; border: 1.4px solid var(--border-strong); flex: 0 0 auto; }
+
+.pa--site { width: 100%; max-width: 360px; }
+.pa__browser { background: #0c0c0d; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+.pa__bbar { display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: #161617; }
+.pa__bdot { width: 7px; height: 7px; border-radius: 999px; background: #3a3a3c; }
+.pa__burl { font-size: 10px; color: #9aa4b0; margin-left: 6px; letter-spacing: 0.02em; }
+.pa__site { display: grid; grid-template-columns: 1.25fr 0.75fr; min-height: 168px; }
+.pa__site-hero { padding: 16px 14px; color: #f3efe6; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.pa__site-kicker { font-size: 9px; color: #9aa4b0; letter-spacing: 0.1em; }
+.pa__site-h { font-size: 15px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; }
+.pa__site-cta { display: inline-block; align-self: flex-start; font-size: 10px; font-weight: 600; padding: 5px 9px; border-radius: 4px; color: #0c0c0d; }
+.pa__site-side { background: #f3efe6; color: #0c0c0d; padding: 14px 12px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+.pa__site-stat { display: flex; flex-direction: column; gap: 2px; font-size: 10px; color: #6f6d68; }
+.pa__site-stat .mono { color: #0c0c0d; font-size: 12px; font-weight: 600; }
 
 /* ============== CTA tweaks ============== */
 .cta__copy h2 br { display: none; }

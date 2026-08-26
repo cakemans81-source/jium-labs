@@ -49,7 +49,7 @@ const HERO = {
       </div>
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          ${["PartStream / 자동 견적", "Loomi / 자동화 워크플로우", "Stackbench / 운영 대시보드", "Notedeck / 회의록", "— JIUM 09"].concat(["PartStream / 자동 견적", "Loomi / 자동화 워크플로우", "Stackbench / 운영 대시보드", "Notedeck / 회의록", "— JIUM 09"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
+          ${["PartStream / 자동 견적", "Loomi / 자동화 워크플로우", "세일정밀 / 홈페이지", "Notedeck / 회의록", "— JIUM 09"].concat(["PartStream / 자동 견적", "Loomi / 자동화 워크플로우", "세일정밀 / 홈페이지", "Notedeck / 회의록", "— JIUM 09"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
         </div>
       </div>
     </section>
@@ -159,11 +159,11 @@ document.getElementById("strip-slot").innerHTML = `
     <div class="strip__row">
       <div class="strip__cell">
         <span class="strip__k mono">운영 중</span>
-        <span class="strip__v">2 <span class="strip__sub">프로젝트</span></span>
+        <span class="strip__v">3 <span class="strip__sub">프로젝트</span></span>
       </div>
       <div class="strip__cell">
         <span class="strip__k mono">개발 중</span>
-        <span class="strip__v">2 <span class="strip__sub">프로젝트</span></span>
+        <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
       </div>
       <div class="strip__cell">
         <span class="strip__k mono">설립</span>
@@ -199,13 +199,13 @@ const PROJECTS = [
     accent: "oklch(0.58 0.13 158)",
   },
   {
-    n: "03", name: "Stackbench", domain: "stackbench.jium.io",
-    status: "dev", statusLabel: "개발 중",
-    tagline: "흩어진 운영 지표를 한 화면에.",
-    desc: "서비스 매출·재고·대화량·서버 상태를 하나의 대시보드로. 매주 자동으로 정리되는 운영 리포트.",
-    tags: ["대시보드", "BI 라이트", "리포트"],
-    art: "chart",
-    accent: "oklch(0.70 0.15 70)",
+    n: "03", name: "세일정밀산업", domain: "seil-precision.vercel.app",
+    status: "work", statusLabel: "제작 사례",
+    tagline: "제조 현장을 그대로 담은 홈페이지.",
+    desc: "경주 금형·시제품·정밀가공 업체를 위해 만든 웹사이트 샘플입니다. 히어로부터 설비·작업·도면 문의까지, 공장의 리듬으로 이어집니다.",
+    tags: ["홈페이지 제작", "제조", "외주"],
+    art: "site",
+    accent: "oklch(0.68 0.16 135)",
   },
   {
     n: "04", name: "Notedeck", domain: "notedeck.jium.io",
@@ -265,6 +265,28 @@ function projectArt(kind, accent) {
       <div class="pa__doc-todo"><span class="pa__chk"></span> 베타 안내 메일</div>
     </div>`;
   }
+  if (kind === "site") {
+    return `<div class="pa pa--site">
+      <div class="pa__browser">
+        <div class="pa__bbar">
+          <span class="pa__bdot"></span><span class="pa__bdot"></span><span class="pa__bdot"></span>
+          <span class="mono pa__burl">seil-precision.vercel.app</span>
+        </div>
+        <div class="pa__site">
+          <div class="pa__site-hero">
+            <div class="pa__site-kicker mono">SEIL · GYEONGJU</div>
+            <div class="pa__site-h">도면이 금형이 됩니다.</div>
+            <span class="pa__site-cta" style="background:${accent}">도면 문의</span>
+          </div>
+          <div class="pa__site-side">
+            <div class="pa__site-stat"><span class="mono">2018</span>설립</div>
+            <div class="pa__site-stat"><span class="mono">HERMLE</span>5축</div>
+            <div class="pa__site-stat"><span class="mono">ISO</span>벤처</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
   if (kind === "quote") {
     return `<div class="pa pa--doc" style="gap:6px;">
       <div class="pa__doc-tag mono" style="color:${accent}">UPLOAD · part_v2.stl</div>
@@ -293,8 +315,8 @@ document.getElementById("projects-slot").innerHTML = `
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">프로젝트</span>
-      <h2>네 개의 작은 SaaS,<br/>각자의 도메인에서.</h2>
-      <p>JIUM LABS는 한 번에 하나씩, 천천히 만듭니다. 각 제품은 독립된 도메인과 팀에서 운영되며, 필요하다면 자연스럽게 연결됩니다.</p>
+      <h2>제품과 홈페이지,<br/>각자의 도메인에서.</h2>
+      <p>자체 SaaS와 함께, 현장을 아는 업체의 홈페이지도 만듭니다. 각 작업은 독립된 도메인에서 운영됩니다.</p>
     </div>
     <div class="projects">
       ${PROJECTS.map(p => `
