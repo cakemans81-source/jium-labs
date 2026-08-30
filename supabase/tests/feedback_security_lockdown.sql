@@ -78,7 +78,7 @@ begin
       ('feedback_comments'::name, 'id'::name, (select grantee from roles where role_name='anon'), 'SELECT'::text, false), ('feedback_comments'::name, 'feedback_id'::name, (select grantee from roles where role_name='anon'), 'SELECT'::text, false), ('feedback_comments'::name, 'author'::name, (select grantee from roles where role_name='anon'), 'SELECT'::text, false), ('feedback_comments'::name, 'body'::name, (select grantee from roles where role_name='anon'), 'SELECT'::text, false), ('feedback_comments'::name, 'created_at'::name, (select grantee from roles where role_name='anon'), 'SELECT'::text, false),
       ('feedback_comments'::name, 'id'::name, (select grantee from roles where role_name='authenticated'), 'SELECT'::text, false), ('feedback_comments'::name, 'feedback_id'::name, (select grantee from roles where role_name='authenticated'), 'SELECT'::text, false), ('feedback_comments'::name, 'author'::name, (select grantee from roles where role_name='authenticated'), 'SELECT'::text, false), ('feedback_comments'::name, 'body'::name, (select grantee from roles where role_name='authenticated'), 'SELECT'::text, false), ('feedback_comments'::name, 'created_at'::name, (select grantee from roles where role_name='authenticated'), 'SELECT'::text, false)
   ), actual as (
-    select c.relname::name as rel_name, a.attname::name as column_name, x.grantee, x.privilege_type, x.is_grantable from pg_catalog.pg_class c join pg_catalog.pg_namespace n on n.oid=c.relnamespace join pg_catalog.pg_attribute a on a.attrelid=c.oid and a.attnum>0 and not a.attisdropped cross join lateral pg_catalog.aclexplode(coalesce(a.attacl,array[]::pg_catalog.aclitem[])) x where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes') and x.grantee in (select grantee from roles)
+    select c.relname::name as rel_name, a.attname::name as column_name, x.grantee, x.privilege_type, x.is_grantable from pg_catalog.pg_class c join pg_catalog.pg_namespace n on n.oid=c.relnamespace join pg_catalog.pg_attribute a on a.attrelid=c.oid and a.attnum>0 and not a.attisdropped and a.attacl is not null cross join lateral pg_catalog.aclexplode(a.attacl) x where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes') and x.grantee in (select grantee from roles)
   )
     select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.column_name=e.column_name and a.grantee=e.grantee and a.privilege_type=e.privilege_type and a.is_grantable=e.is_grantable where e.rel_name is null or a.rel_name is null
   ) then
@@ -104,7 +104,7 @@ begin
         ('feedback'::name, 'votes'::name, 'UPDATE'::text, false), ('feedback'::name, 'comments'::name, 'UPDATE'::text, false),
         ('feedback_votes'::name, 'feedback_id'::name, 'SELECT'::text, false), ('feedback_votes'::name, 'voter_id'::name, 'SELECT'::text, false)
     ), actual as (
-      select c.relname::name as rel_name, a.attname::name as column_name, x.privilege_type, x.is_grantable from pg_catalog.pg_class c join pg_catalog.pg_namespace n on n.oid=c.relnamespace join pg_catalog.pg_attribute a on a.attrelid=c.oid and a.attnum>0 and not a.attisdropped cross join lateral pg_catalog.aclexplode(coalesce(a.attacl,array[]::pg_catalog.aclitem[])) x where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes') and x.grantee=(select oid from pg_catalog.pg_roles where rolname='feedback_writer')
+      select c.relname::name as rel_name, a.attname::name as column_name, x.privilege_type, x.is_grantable from pg_catalog.pg_class c join pg_catalog.pg_namespace n on n.oid=c.relnamespace join pg_catalog.pg_attribute a on a.attrelid=c.oid and a.attnum>0 and not a.attisdropped and a.attacl is not null cross join lateral pg_catalog.aclexplode(a.attacl) x where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes') and x.grantee=(select oid from pg_catalog.pg_roles where rolname='feedback_writer')
     )
     select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.column_name=e.column_name and a.privilege_type=e.privilege_type and a.is_grantable=e.is_grantable where e.rel_name is null or a.rel_name is null
   )
@@ -112,7 +112,7 @@ begin
     with target_sequences as (
       select c.oid from pg_catalog.pg_class c join pg_catalog.pg_depend d on d.classid='pg_catalog.pg_class'::pg_catalog.regclass and d.objid=c.oid and d.refclassid='pg_catalog.pg_class'::pg_catalog.regclass and d.deptype in ('a','i') join pg_catalog.pg_class t on t.oid=d.refobjid join pg_catalog.pg_namespace tn on tn.oid=t.relnamespace where c.relkind='S' and tn.nspname='public' and t.relname in ('feedback','feedback_comments','feedback_votes')
     )
-    select 1 from target_sequences s where pg_catalog.has_sequence_privilege((select oid from pg_catalog.pg_roles where rolname='feedback_writer'),s.oid,'USAGE,SELECT,UPDATE') or exists(select 1 from pg_catalog.pg_class c cross join lateral pg_catalog.aclexplode(coalesce(c.relacl,array[]::pg_catalog.aclitem[])) x where c.oid=s.oid and x.grantee=(select oid from pg_catalog.pg_roles where rolname='feedback_writer'))
+    select 1 from target_sequences s where pg_catalog.has_sequence_privilege((select oid from pg_catalog.pg_roles where rolname='feedback_writer'),s.oid,'USAGE,SELECT,UPDATE') or exists(select 1 from pg_catalog.pg_class c cross join lateral pg_catalog.aclexplode(c.relacl) x where c.oid=s.oid and c.relacl is not null and x.grantee=(select oid from pg_catalog.pg_roles where rolname='feedback_writer'))
   ) then
     raise exception 'A06 feedback_writer target ACLs exactly match the Foundation minimum and no target sequence privilege remains';
   end if;
@@ -126,7 +126,7 @@ begin
   ), target_sequences as (
     select c.oid from pg_catalog.pg_class c join pg_catalog.pg_depend d on d.classid='pg_catalog.pg_class'::pg_catalog.regclass and d.objid=c.oid and d.refclassid='pg_catalog.pg_class'::pg_catalog.regclass and d.deptype in ('a','i') join pg_catalog.pg_class t on t.oid=d.refobjid join pg_catalog.pg_namespace tn on tn.oid=t.relnamespace where c.relkind='S' and tn.nspname='public' and t.relname in ('feedback','feedback_comments','feedback_votes')
   )
-    select 1 from target_sequences s cross join roles r cross join lateral pg_catalog.aclexplode(coalesce((select relacl from pg_catalog.pg_class where oid=s.oid),array[]::pg_catalog.aclitem[])) x where x.grantee=r.grantee
+    select 1 from target_sequences s join pg_catalog.pg_class c on c.oid=s.oid and c.relacl is not null cross join roles r cross join lateral pg_catalog.aclexplode(c.relacl) x where x.grantee=r.grantee
   ) then
     raise exception 'A07 target-owned sequence ACLs deny PUBLIC, anon, authenticated, and service_role';
   end if;
