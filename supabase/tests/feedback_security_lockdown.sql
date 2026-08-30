@@ -1,12 +1,20 @@
 begin;
 
-do $$ begin
-  if not (select count(*)=3 and bool_and(relrowsecurity) from pg_catalog.pg_class c join pg_catalog.pg_namespace n on n.oid=c.relnamespace where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes') and c.relkind='r') then
+do $$
+begin
+  if not coalesce((
+    select count(*)=3 and bool_and(relrowsecurity)
+    from pg_catalog.pg_class c
+    join pg_catalog.pg_namespace n on n.oid=c.relnamespace
+    where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes') and c.relkind='r'
+  ), false) then
     raise exception 'A01 all feedback tables retain RLS';
   end if;
 end $$;
 
-do $$ begin if not (not exists(
+do $$
+begin
+  if exists (
   with expected(rel_name, column_name) as (
     values
       ('feedback'::name, 'id'::name), ('feedback'::name, 'project'::name), ('feedback'::name, 'type'::name), ('feedback'::name, 'status'::name), ('feedback'::name, 'title'::name), ('feedback'::name, 'body'::name), ('feedback'::name, 'author'::name), ('feedback'::name, 'date'::name), ('feedback'::name, 'votes'::name), ('feedback'::name, 'comments'::name), ('feedback'::name, 'tags'::name), ('feedback'::name, 'reply'::name),
@@ -15,9 +23,15 @@ do $$ begin if not (not exists(
   ), actual as (
     select c.relname::name as rel_name, a.attname::name as column_name from pg_catalog.pg_class c join pg_catalog.pg_namespace n on n.oid=c.relnamespace join pg_catalog.pg_attribute a on a.attrelid=c.oid where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes') and a.attnum>0 and not a.attisdropped
   )
-  select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.column_name=e.column_name where e.rel_name is null or a.rel_name is null
-) then raise exception 'A02 target table columns exactly match the lockdown ACL boundary'; end if; end $$;
-do $$ begin if not (not exists(
+    select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.column_name=e.column_name where e.rel_name is null or a.rel_name is null
+  ) then
+    raise exception 'A02 target table columns exactly match the lockdown ACL boundary';
+  end if;
+end $$;
+
+do $$
+begin
+  if exists (
   with expected(rel_name, policy_name, policy_cmd, policy_roles, permissive, using_expression, check_expression) as (
     values
       ('feedback'::name, 'feedback_client_read'::name, 'r'::"char", array[(select oid from pg_catalog.pg_roles where rolname='anon'),(select oid from pg_catalog.pg_roles where rolname='authenticated')]::oid[], true, 'true'::text, null::text),
@@ -32,9 +46,15 @@ do $$ begin if not (not exists(
   ), actual as (
     select c.relname::name as rel_name, p.polname::name as policy_name, p.polcmd as policy_cmd, p.polroles as policy_roles, p.polpermissive as permissive, pg_catalog.pg_get_expr(p.polqual,p.polrelid) as using_expression, pg_catalog.pg_get_expr(p.polwithcheck,p.polrelid) as check_expression from pg_catalog.pg_policy p join pg_catalog.pg_class c on c.oid=p.polrelid join pg_catalog.pg_namespace n on n.oid=c.relnamespace where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes')
   )
-  select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.policy_name=e.policy_name and a.policy_cmd=e.policy_cmd and a.policy_roles=e.policy_roles and a.permissive=e.permissive and a.using_expression is not distinct from e.using_expression and a.check_expression is not distinct from e.check_expression where e.rel_name is null or a.rel_name is null
-) then raise exception 'A03 exactly nine lockdown policies replace the legacy public write policies'; end if; end $$;
-do $$ begin if not (not exists(
+    select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.policy_name=e.policy_name and a.policy_cmd=e.policy_cmd and a.policy_roles=e.policy_roles and a.permissive=e.permissive and a.using_expression is not distinct from e.using_expression and a.check_expression is not distinct from e.check_expression where e.rel_name is null or a.rel_name is null
+  ) then
+    raise exception 'A03 exactly nine lockdown policies replace the legacy public write policies';
+  end if;
+end $$;
+
+do $$
+begin
+  if exists (
   with roles(role_name, grantee) as (
     values ('PUBLIC'::text, 0::oid), ('anon'::text, (select oid from pg_catalog.pg_roles where rolname='anon')), ('authenticated'::text, (select oid from pg_catalog.pg_roles where rolname='authenticated')), ('service_role'::text, (select oid from pg_catalog.pg_roles where rolname='service_role'))
   ), expected(rel_name, grantee, privilege_type, is_grantable) as (
@@ -42,9 +62,15 @@ do $$ begin if not (not exists(
   ), actual as (
     select c.relname::name as rel_name, x.grantee, x.privilege_type, x.is_grantable from pg_catalog.pg_class c join pg_catalog.pg_namespace n on n.oid=c.relnamespace cross join lateral pg_catalog.aclexplode(coalesce(c.relacl,pg_catalog.acldefault('r',c.relowner))) x where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes') and x.grantee in (select grantee from roles)
   )
-  select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.grantee=e.grantee and a.privilege_type=e.privilege_type and a.is_grantable=e.is_grantable where e.rel_name is null or a.rel_name is null
-) then raise exception 'A04 relation ACL matrix permits only client feedback SELECT'; end if; end $$;
-do $$ begin if not (not exists(
+    select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.grantee=e.grantee and a.privilege_type=e.privilege_type and a.is_grantable=e.is_grantable where e.rel_name is null or a.rel_name is null
+  ) then
+    raise exception 'A04 relation ACL matrix permits only client feedback SELECT';
+  end if;
+end $$;
+
+do $$
+begin
+  if exists (
   with roles(role_name, grantee) as (
     values ('PUBLIC'::text, 0::oid), ('anon'::text, (select oid from pg_catalog.pg_roles where rolname='anon')), ('authenticated'::text, (select oid from pg_catalog.pg_roles where rolname='authenticated')), ('service_role'::text, (select oid from pg_catalog.pg_roles where rolname='service_role'))
   ), expected(rel_name, column_name, grantee, privilege_type, is_grantable) as (
@@ -54,10 +80,15 @@ do $$ begin if not (not exists(
   ), actual as (
     select c.relname::name as rel_name, a.attname::name as column_name, x.grantee, x.privilege_type, x.is_grantable from pg_catalog.pg_class c join pg_catalog.pg_namespace n on n.oid=c.relnamespace join pg_catalog.pg_attribute a on a.attrelid=c.oid and a.attnum>0 and not a.attisdropped cross join lateral pg_catalog.aclexplode(coalesce(a.attacl,array[]::pg_catalog.aclitem[])) x where n.nspname='public' and c.relname in ('feedback','feedback_comments','feedback_votes') and x.grantee in (select grantee from roles)
   )
-  select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.column_name=e.column_name and a.grantee=e.grantee and a.privilege_type=e.privilege_type and a.is_grantable=e.is_grantable where e.rel_name is null or a.rel_name is null
-) then raise exception 'A05 column ACL matrix exposes only the five safe comment columns'; end if; end $$;
-do $$ begin if not (
-  not exists(
+    select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.column_name=e.column_name and a.grantee=e.grantee and a.privilege_type=e.privilege_type and a.is_grantable=e.is_grantable where e.rel_name is null or a.rel_name is null
+  ) then
+    raise exception 'A05 column ACL matrix exposes only the five safe comment columns';
+  end if;
+end $$;
+
+do $$
+begin
+  if exists (
     with expected(rel_name, privilege_type, is_grantable) as (
       values ('feedback_comments'::name, 'INSERT'::text, false), ('feedback_votes'::name, 'INSERT'::text, false), ('feedback_votes'::name, 'DELETE'::text, false)
     ), actual as (
@@ -65,7 +96,7 @@ do $$ begin if not (
     )
     select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.privilege_type=e.privilege_type and a.is_grantable=e.is_grantable where e.rel_name is null or a.rel_name is null
   )
-  and not exists(
+  or exists (
     with expected(rel_name, column_name, privilege_type, is_grantable) as (
       values
         ('feedback'::name, 'id'::name, 'SELECT'::text, false), ('feedback'::name, 'votes'::name, 'SELECT'::text, false), ('feedback'::name, 'comments'::name, 'SELECT'::text, false),
@@ -77,26 +108,56 @@ do $$ begin if not (
     )
     select 1 from expected e full join actual a on a.rel_name=e.rel_name and a.column_name=e.column_name and a.privilege_type=e.privilege_type and a.is_grantable=e.is_grantable where e.rel_name is null or a.rel_name is null
   )
-  and not exists(
+  or exists (
     with target_sequences as (
       select c.oid from pg_catalog.pg_class c join pg_catalog.pg_depend d on d.classid='pg_catalog.pg_class'::pg_catalog.regclass and d.objid=c.oid and d.refclassid='pg_catalog.pg_class'::pg_catalog.regclass and d.deptype in ('a','i') join pg_catalog.pg_class t on t.oid=d.refobjid join pg_catalog.pg_namespace tn on tn.oid=t.relnamespace where c.relkind='S' and tn.nspname='public' and t.relname in ('feedback','feedback_comments','feedback_votes')
     )
     select 1 from target_sequences s where pg_catalog.has_sequence_privilege((select oid from pg_catalog.pg_roles where rolname='feedback_writer'),s.oid,'USAGE,SELECT,UPDATE') or exists(select 1 from pg_catalog.pg_class c cross join lateral pg_catalog.aclexplode(coalesce(c.relacl,array[]::pg_catalog.aclitem[])) x where c.oid=s.oid and x.grantee=(select oid from pg_catalog.pg_roles where rolname='feedback_writer'))
-  )
-) then raise exception 'A06 feedback_writer target ACLs exactly match the Foundation minimum and no target sequence privilege remains'; end if; end $$;
-do $$ begin if not (not exists(
+  ) then
+    raise exception 'A06 feedback_writer target ACLs exactly match the Foundation minimum and no target sequence privilege remains';
+  end if;
+end $$;
+
+do $$
+begin
+  if exists (
   with roles(role_name, grantee) as (
     values ('PUBLIC'::text, 0::oid), ('anon'::text, (select oid from pg_catalog.pg_roles where rolname='anon')), ('authenticated'::text, (select oid from pg_catalog.pg_roles where rolname='authenticated')), ('service_role'::text, (select oid from pg_catalog.pg_roles where rolname='service_role'))
   ), target_sequences as (
     select c.oid from pg_catalog.pg_class c join pg_catalog.pg_depend d on d.classid='pg_catalog.pg_class'::pg_catalog.regclass and d.objid=c.oid and d.refclassid='pg_catalog.pg_class'::pg_catalog.regclass and d.deptype in ('a','i') join pg_catalog.pg_class t on t.oid=d.refobjid join pg_catalog.pg_namespace tn on tn.oid=t.relnamespace where c.relkind='S' and tn.nspname='public' and t.relname in ('feedback','feedback_comments','feedback_votes')
   )
-  select 1 from target_sequences s cross join roles r cross join lateral pg_catalog.aclexplode(coalesce((select relacl from pg_catalog.pg_class where oid=s.oid),array[]::pg_catalog.aclitem[])) x where x.grantee=r.grantee
-) then raise exception 'A07 target-owned sequence ACLs deny PUBLIC, anon, authenticated, and service_role'; end if; end $$;
-do $$ begin if not (not exists(
-  with roles(role_name, role_oid) as (values ('anon'::text,(select oid from pg_catalog.pg_roles where rolname='anon')),('authenticated'::text,(select oid from pg_catalog.pg_roles where rolname='authenticated')),('service_role'::text,(select oid from pg_catalog.pg_roles where rolname='service_role'))), target_sequences as (select c.oid from pg_catalog.pg_class c join pg_catalog.pg_depend d on d.classid='pg_catalog.pg_class'::pg_catalog.regclass and d.objid=c.oid and d.refclassid='pg_catalog.pg_class'::pg_catalog.regclass and d.deptype in ('a','i') join pg_catalog.pg_class t on t.oid=d.refobjid join pg_catalog.pg_namespace tn on tn.oid=t.relnamespace where c.relkind='S' and tn.nspname='public' and t.relname in ('feedback','feedback_comments','feedback_votes')) select 1 from target_sequences s cross join roles r where pg_catalog.has_sequence_privilege(r.role_oid,s.oid,'USAGE,SELECT,UPDATE')
-) then raise exception 'A08 target-owned sequences have no effective client or service-role privilege'; end if; end $$;
-do $$ begin if not ((select count(*)=4 and bool_and(pg_catalog.pg_get_userbyid(proowner)='feedback_writer') and bool_and(prosecdef) and bool_and(coalesce(proconfig in (array['search_path=']::text[],array['search_path=""']::text[]),false)) and bool_and(pg_catalog.has_function_privilege('service_role',oid,'EXECUTE')) from pg_catalog.pg_proc where oid in ('public.feedback_create(text,text,text,text,text,text,text)'::pg_catalog.regprocedure,'public.feedback_comment_create(text,text,text,text,text)'::pg_catalog.regprocedure,'public.feedback_vote_set(text,boolean,text,text)'::pg_catalog.regprocedure,'public.feedback_vote_state(text,text,text)'::pg_catalog.regprocedure))) then raise exception 'A09 service-role RPCs remain writer-owned SECURITY DEFINER with empty search_path'; end if; end $$;
-do $$ begin if not (not exists(select 1 from pg_catalog.pg_proc p cross join lateral pg_catalog.aclexplode(coalesce(p.proacl,pg_catalog.acldefault('f',p.proowner))) x where p.oid in ('public.feedback_create(text,text,text,text,text,text,text)'::pg_catalog.regprocedure,'public.feedback_comment_create(text,text,text,text,text)'::pg_catalog.regprocedure,'public.feedback_vote_set(text,boolean,text,text)'::pg_catalog.regprocedure,'public.feedback_vote_state(text,text,text)'::pg_catalog.regprocedure) and x.privilege_type='EXECUTE' and x.grantee not in (p.proowner,(select oid from pg_catalog.pg_roles where rolname='service_role')))) then raise exception 'A10 only service_role receives explicit RPC EXECUTE'; end if; end $$;
+    select 1 from target_sequences s cross join roles r cross join lateral pg_catalog.aclexplode(coalesce((select relacl from pg_catalog.pg_class where oid=s.oid),array[]::pg_catalog.aclitem[])) x where x.grantee=r.grantee
+  ) then
+    raise exception 'A07 target-owned sequence ACLs deny PUBLIC, anon, authenticated, and service_role';
+  end if;
+end $$;
+
+do $$
+begin
+  if exists (
+    with roles(role_name, role_oid) as (values ('anon'::text,(select oid from pg_catalog.pg_roles where rolname='anon')),('authenticated'::text,(select oid from pg_catalog.pg_roles where rolname='authenticated')),('service_role'::text,(select oid from pg_catalog.pg_roles where rolname='service_role'))), target_sequences as (select c.oid from pg_catalog.pg_class c join pg_catalog.pg_depend d on d.classid='pg_catalog.pg_class'::pg_catalog.regclass and d.objid=c.oid and d.refclassid='pg_catalog.pg_class'::pg_catalog.regclass and d.deptype in ('a','i') join pg_catalog.pg_class t on t.oid=d.refobjid join pg_catalog.pg_namespace tn on tn.oid=t.relnamespace where c.relkind='S' and tn.nspname='public' and t.relname in ('feedback','feedback_comments','feedback_votes')) select 1 from target_sequences s cross join roles r where pg_catalog.has_sequence_privilege(r.role_oid,s.oid,'USAGE,SELECT,UPDATE')
+  ) then
+    raise exception 'A08 target-owned sequences have no effective client or service-role privilege';
+  end if;
+end $$;
+
+do $$
+begin
+  if not coalesce((
+    select count(*)=4 and bool_and(pg_catalog.pg_get_userbyid(proowner)='feedback_writer') and bool_and(prosecdef) and bool_and(coalesce(proconfig in (array['search_path=']::text[],array['search_path=""']::text[]),false)) and bool_and(pg_catalog.has_function_privilege('service_role',oid,'EXECUTE')) from pg_catalog.pg_proc where oid in ('public.feedback_create(text,text,text,text,text,text,text)'::pg_catalog.regprocedure,'public.feedback_comment_create(text,text,text,text,text)'::pg_catalog.regprocedure,'public.feedback_vote_set(text,boolean,text,text)'::pg_catalog.regprocedure,'public.feedback_vote_state(text,text,text)'::pg_catalog.regprocedure)
+  ), false) then
+    raise exception 'A09 service-role RPCs remain writer-owned SECURITY DEFINER with empty search_path';
+  end if;
+end $$;
+
+do $$
+begin
+  if exists (
+    select 1 from pg_catalog.pg_proc p cross join lateral pg_catalog.aclexplode(coalesce(p.proacl,pg_catalog.acldefault('f',p.proowner))) x where p.oid in ('public.feedback_create(text,text,text,text,text,text,text)'::pg_catalog.regprocedure,'public.feedback_comment_create(text,text,text,text,text)'::pg_catalog.regprocedure,'public.feedback_vote_set(text,boolean,text,text)'::pg_catalog.regprocedure,'public.feedback_vote_state(text,text,text)'::pg_catalog.regprocedure) and x.privilege_type='EXECUTE' and x.grantee not in (p.proowner,(select oid from pg_catalog.pg_roles where rolname='service_role'))
+  ) then
+    raise exception 'A10 only service_role receives explicit RPC EXECUTE';
+  end if;
+end $$;
 
 do $$
 declare denied_state text;
