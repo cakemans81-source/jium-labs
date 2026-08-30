@@ -90,7 +90,7 @@ document.getElementById("faq-slot").innerHTML = `
         { q:"제품끼리는 연동되나요?",
           a:"필요하면 됩니다. 모든 제품은 같은 인증 체계와 Webhook을 공유하므로 한 곳에서 시작한 작업을 다른 제품에서 이어 받을 수 있습니다. 다만 따로 써도 어색하지 않게 설계합니다." },
         { q:"협업이나 제휴 문의는 어떻게 하나요?",
-          a:"페이지 하단의 문의 양식이나 jiumlabs@jiumlabs.com 로 메일 주세요. 영업일 기준 2일 이내 회신드립니다. 투자·M&A·라이선스 관련 문의는 별도 채널이 없습니다." },
+          a:"페이지 하단의 이메일 문의 버튼 또는 jiumlabs@jiumlabs.com 으로 메일 주세요. 홈페이지 제작과 SaaS 협업 문의를 받습니다. 영업일 기준 2일 이내 회신드립니다." },
         { q:"채용은 진행 중인가요?",
           a:"현재는 정규 채용 공고를 운영하지 않습니다. 다만 함께 만들고 싶은 분이라면 자신의 작업과 함께 메일 주세요. 회신은 더디지만 반드시 드립니다." },
       ].map((f, i) => `
@@ -147,17 +147,15 @@ document.getElementById("cta-slot").innerHTML = `
   <div class="container cta__inner">
     <div class="cta__copy">
       <span class="eyebrow">함께 만들기</span>
-      <h2>새 프로젝트 소식을<br/>가장 먼저 받아보세요.</h2>
-      <p>JIUM LABS의 새 제품 출시, 비공개 베타 모집, 작업 노트를 한 달에 한 번 정리해 보내드립니다.</p>
+      <h2>만들고 싶은 일을 <br/>함께 이야기해요.</h2>
+      <p>홈페이지 제작부터 SaaS 협업까지, 프로젝트의 맥락을 이메일로 들려주세요.</p>
     </div>
-    <form class="cta__form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='구독 완료 ✓'; this.querySelector('button').disabled = true;">
-      <label class="cta__field">
-        <span class="mono">이메일</span>
-        <input type="email" required placeholder="you@team.co.kr" />
-      </label>
-      <button class="btn btn--accent btn--lg" type="submit">월간 소식 받기 <span aria-hidden="true">→</span></button>
-      <p class="cta__fine">언제든 한 번의 클릭으로 구독 해지 · 협업 문의는 jiumlabs@jiumlabs.com</p>
-    </form>
+    <div class="cta__contact">
+      <span class="mono">이메일 문의</span>
+      <a class="cta__email" href="mailto:jiumlabs@jiumlabs.com">jiumlabs@jiumlabs.com</a>
+      <a class="btn btn--accent btn--lg" href="mailto:jiumlabs@jiumlabs.com">이메일로 문의하기 <span aria-hidden="true">→</span></a>
+      <p class="cta__fine">홈페이지 제작과 SaaS 협업 문의를 이메일로 보내주세요.</p>
+    </div>
   </div>
 </section>
 `;
