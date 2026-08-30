@@ -81,11 +81,13 @@
           </div>
         </div>
 
-        <div class="fb-list" id="fb-list"></div>
+        <div class="fb-list" id="fb-list" aria-busy="true"></div>
 
-        <div class="fb-empty" id="fb-empty" hidden>
+        <div class="fb-empty" id="fb-empty" role="status" aria-live="polite" aria-atomic="true" hidden>
           <p>표시할 피드백이 없습니다.</p>
         </div>
+        <p id="fb-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+        <button type="button" id="fb-load-more" class="btn btn--outline" hidden>더 보기</button>
       </div>
     </section>
 
@@ -207,7 +209,7 @@
   </footer>
 
   <script src="tweaks.js"></script>
-  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.min.js" integrity="sha384-yiVMs0R/Jyz7OhoXa/DsEMUSBLjEhr/QJta2ONO+zB6I8/GmNg/7AUFrZmAJV7KV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="config.js"></script>
   <script src="feedback.js"></script>
 </body>
