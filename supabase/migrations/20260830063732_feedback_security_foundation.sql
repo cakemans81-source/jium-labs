@@ -137,7 +137,9 @@ grant select(id,votes,comments) on public.feedback to feedback_writer; grant ins
 grant execute on function private.feedback_hmac(text,text),private.feedback_actor_hashes(text),private.feedback_rate_limit_consume(text,text,text),private.feedback_valid_actor_ip(text,text),private.feedback_canonical_ip(text) to feedback_writer;
 grant feedback_writer to postgres with inherit false, set true; grant create on schema public to feedback_writer;
 alter default privileges for role postgres revoke execute on functions from public;
-alter default privileges for role feedback_writer revoke execute on functions from public;
+set local role feedback_writer;
+alter default privileges revoke execute on functions from public;
+reset role;
 alter function public.feedback_create(text,text,text,text,text,text,text) owner to feedback_writer; alter function public.feedback_comment_create(text,text,text,text,text) owner to feedback_writer; alter function public.feedback_vote_set(text,boolean,text,text) owner to feedback_writer; alter function public.feedback_vote_state(text,text,text) owner to feedback_writer;
 revoke create on schema public from feedback_writer; revoke set option for feedback_writer from postgres;
 revoke all on function private.feedback_hmac(text,text),private.feedback_actor_hashes(text),private.feedback_rate_rule(text),private.feedback_rate_limit_consume(text,text,text),private.feedback_valid_actor_ip(text,text),private.feedback_canonical_ip(text),public.sync_feedback_comment_count(),public.feedback_create(text,text,text,text,text,text,text),public.feedback_comment_create(text,text,text,text,text),public.feedback_vote_set(text,boolean,text,text),public.feedback_vote_state(text,text,text) from public,anon,authenticated;
