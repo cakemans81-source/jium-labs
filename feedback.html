@@ -44,8 +44,8 @@
     <section class="fb-hero section--flush">
       <div class="container">
         <span class="eyebrow">베타 피드백 보드</span>
-        <h1 class="fb-hero__h1">베타 테스터의<br/><em>목소리.</em></h1>
-        <p class="fb-hero__p">JIUM LABS의 모든 제품은 베타 테스터의 피드백으로 다듬어집니다. 누구나 의견을 남길 수 있고, 모든 처리 상태가 공개됩니다.</p>
+        <h1 class="fb-hero__h1">남겨주신 의견을<br/><em>제품 개선에 참고합니다.</em></h1>
+        <p class="fb-hero__p">JIUM LABS 제품에 대한 의견을 남기고, 보드에 공개된 항목의 처리 상태를 확인할 수 있습니다.</p>
         <div class="fb-hero__stats">
           <div><span class="mono fb-hero__k">총 피드백</span><strong id="stat-total">—</strong></div>
           <div><span class="mono fb-hero__k">진행 중</span><strong id="stat-progress">—</strong></div>
@@ -62,7 +62,7 @@
             <button class="fb-chip is-on" data-filter="project" data-value="all">전체</button>
             <button class="fb-chip" data-filter="project" data-value="threadr">PartStream</button>
             <button class="fb-chip" data-filter="project" data-value="loomi">Loomi</button>
-            <button class="fb-chip" data-filter="project" data-value="stackbench">Stackbench</button>
+            <button class="fb-chip" data-filter="project" data-value="stackbench">Stackbench · 기존 분류</button>
             <button class="fb-chip" data-filter="project" data-value="notedeck">Notedeck</button>
           </div>
           <div class="fb-tools">
@@ -95,8 +95,8 @@
       <div class="container fb-cta__inner">
         <div>
           <span class="eyebrow">참여하기</span>
-          <h2>당신의 한 줄이<br/>다음 릴리스가 됩니다.</h2>
-          <p>버그, 개선 제안, 새 기능 아이디어 무엇이든 환영합니다. 모든 피드백은 24시간 안에 확인합니다.</p>
+          <h2>당신의 의견을<br/>제품 개선에 참고합니다.</h2>
+          <p>버그, 개선 제안, 새 기능 아이디어를 남겨주세요. 보드에 공개된 항목의 처리 상태를 확인할 수 있습니다.</p>
         </div>
         <button class="btn btn--accent btn--lg" id="open-new-2">새 피드백 작성 <span aria-hidden="true">→</span></button>
       </div>
@@ -120,7 +120,7 @@
           <select id="f-project" required>
             <option value="threadr">PartStream</option>
             <option value="loomi">Loomi</option>
-            <option value="stackbench">Stackbench</option>
+            <option value="stackbench">Stackbench · 기존 분류</option>
             <option value="notedeck">Notedeck</option>
             <option value="general">스튜디오 전반</option>
           </select>
@@ -173,7 +173,7 @@
         </div>
         <p class="footer__tag">필요한 도구를 짓다.<br/>JIUM LABS는 소규모 팀을 위한 SaaS를 설계합니다.</p>
         <div class="footer__social">
-          <a class="footer__social-link" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널">
+          <a class="footer__social-link" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
               <path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/>
             </svg>
@@ -185,24 +185,24 @@
       <div class="footer__cols">
         <div>
           <h4>프로젝트</h4>
-          <a href="#">PartStream ↗</a>
-          <a href="#">Loomi ↗</a>
-          <a href="https://seil-precision.vercel.app" target="_blank" rel="noopener">세일정밀 ↗</a>
-          <a href="#">Notedeck ↗</a>
+          <a href="https://partstream-pi.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="PartStream 사이트 새 창에서 열기">PartStream ↗</a>
+          <a href="https://loomi.jium.io" target="_blank" rel="noopener noreferrer" aria-label="Loomi 사이트 새 창에서 열기">Loomi ↗</a>
+          <a href="https://seil-precision.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="세일정밀 사이트 새 창에서 열기">세일정밀 ↗</a>
+          <span class="footer__pending">Notedeck · 준비 중</span>
         </div>
         <div>
           <h4>스튜디오</h4>
           <a href="index.html#approach">철학</a>
           <a href="index.html#process">작업 방식</a>
-          <a href="#">블로그</a>
+          <span class="footer__pending">블로그 · 준비 중</span>
           <a href="index.html#cta">문의</a>
         </div>
         <div>
           <h4>리소스</h4>
           <a href="feedback.html">피드백 보드</a>
-          <a href="#">변경 사항</a>
+          <span class="footer__pending">변경 사항 · 준비 중</span>
           <a href="index.html#faq">FAQ</a>
-          <a href="#">개인정보처리방침</a>
+          <span class="footer__pending">개인정보처리방침 · 준비 중</span>
         </div>
       </div>
     </div>
