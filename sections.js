@@ -9,11 +9,11 @@ const HERO = {
         <div class="hero__copy">
           <span class="eyebrow">JIUM LABS · 2026</span>
           <h1>필요한 도구를<br/><em>짓다.</em></h1>
-          <p class="hero__lead">JIUM LABS는 소규모 팀이 매일 마주치는 반복 업무를 줄이는 <strong>실용적인 SaaS 제품</strong>을 차례로 만듭니다. 각 제품은 자체 도메인에서 독립적으로 운영됩니다.</p>
+          <p class="hero__lead">JIUM LABS는 소규모 팀이 매일 마주치는 반복 업무를 줄이는 <strong>실용적인 도구</strong>를 차례로 만듭니다. 공개된 작업과 준비 상태는 아래 프로젝트 카드에서 확인할 수 있습니다.</p>
           <div class="hero__cta">
             <a class="btn btn--accent btn--lg" href="#projects">프로젝트 둘러보기 <span aria-hidden="true">→</span></a>
             <a class="btn btn--outline btn--lg" href="#cta">협업 문의</a>
-            <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
               영상으로 보기
             </a>
@@ -36,11 +36,11 @@ const HERO = {
         <div class="hero__center">
           <span class="eyebrow">JIUM LABS · 2026</span>
           <h1 class="hero__h1--big">팀이 쓰는 도구를<br/><em>한 곳에서</em> 짓습니다.</h1>
-          <p class="hero__lead hero__lead--center">하나의 스튜디오에서 출시한 여러 개의 SaaS. 각 제품은 자체 도메인에서 독립적으로 자랍니다.</p>
+          <p class="hero__lead hero__lead--center">하나의 스튜디오에서 만드는 여러 작업. 공개 여부와 준비 상태는 프로젝트 카드에 표시합니다.</p>
           <div class="hero__cta hero__cta--center">
             <a class="btn btn--accent btn--lg" href="#projects">프로젝트 4종 보기 <span aria-hidden="true">→</span></a>
             <a class="btn btn--outline btn--lg" href="#approach">스튜디오 철학</a>
-            <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
               영상으로 보기
             </a>
@@ -64,7 +64,7 @@ const HERO = {
           <div class="hero__cta">
             <a class="btn btn--accent btn--lg" href="#projects">프로젝트 보기 <span aria-hidden="true">→</span></a>
             <a class="btn btn--outline btn--lg" href="#process">작업 절차</a>
-            <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
               영상으로 보기
             </a>
@@ -84,7 +84,7 @@ function heroGridArt() {
     <div class="art__bg"></div>
     <div class="art__cards">
       <article class="art__card art__card--1">
-        <div class="art__chead"><span class="art__dot"></span><span class="mono">threadr · 받은편지함</span></div>
+        <div class="art__chead"><span class="art__dot"></span><span class="mono">도구 화면 · 받은편지함</span></div>
         <div class="art__list">
           <div class="art__row"><span class="art__avatar" style="background:oklch(0.7 0.08 30)"></span><span class="art__line w70"></span><span class="art__time">11:24</span></div>
           <div class="art__row"><span class="art__avatar" style="background:oklch(0.7 0.08 220)"></span><span class="art__line w55"></span><span class="art__time">10:51</span></div>
@@ -93,7 +93,7 @@ function heroGridArt() {
         </div>
       </article>
       <article class="art__card art__card--2">
-        <div class="art__chead"><span class="art__dot art__dot--g"></span><span class="mono">loomi · 자동화</span></div>
+        <div class="art__chead"><span class="art__dot art__dot--g"></span><span class="mono">도구 화면 · 자동화</span></div>
         <div class="art__flow">
           <div class="art__node">트리거</div>
           <div class="art__arrow"></div>
@@ -103,7 +103,7 @@ function heroGridArt() {
         </div>
       </article>
       <article class="art__card art__card--3">
-        <div class="art__chead"><span class="art__dot art__dot--a"></span><span class="mono">stackbench</span></div>
+        <div class="art__chead"><span class="art__dot art__dot--a"></span><span class="mono">도구 화면 · 지표</span></div>
         <div class="art__chart">
           ${Array.from({length: 14}, (_, i) => {
             const h = 18 + Math.round(40 * Math.sin(i * 0.7) + 32 + (i % 3) * 6);
@@ -125,8 +125,8 @@ function heroEditorArt() {
       </div>
       <div class="art__doc">
         <div class="art__tag mono">결정</div>
-        <div class="art__h">Q2 출시 범위 확정</div>
-        <p class="art__p">PartStream 베타는 5월 27일에 한정 공개. Loomi는 6월 둘째 주 일반 출시.</p>
+        <div class="art__h">결정 기록 화면</div>
+        <p class="art__p">결정 기록 화면 예시입니다. 표시된 일정과 담당자는 실제 정보가 아닙니다.</p>
         <div class="art__tag mono">담당</div>
         <div class="art__people">
           <span class="art__chip"><span class="art__avatar" style="background:oklch(0.7 0.09 30)"></span>현우</span>
@@ -135,9 +135,9 @@ function heroEditorArt() {
         </div>
         <div class="art__tag mono">다음 액션</div>
         <ul class="art__todo">
-          <li><span class="art__check"></span>도메인 DNS 전환</li>
-          <li><span class="art__check art__check--done"></span>가격표 페이지 작성</li>
-          <li><span class="art__check"></span>고객사 베타 안내 메일</li>
+          <li><span class="art__check"></span>다음 항목 예시</li>
+          <li><span class="art__check art__check--done"></span>완료 항목 예시</li>
+          <li><span class="art__check"></span>검토 항목 예시</li>
         </ul>
       </div>
     </div>
@@ -159,19 +159,19 @@ document.getElementById("strip-slot").innerHTML = `
     <div class="strip__row">
       <div class="strip__cell">
         <span class="strip__k mono">운영 중</span>
-        <span class="strip__v">3 <span class="strip__sub">프로젝트</span></span>
-      </div>
-      <div class="strip__cell">
-        <span class="strip__k mono">개발 중</span>
         <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
       </div>
       <div class="strip__cell">
-        <span class="strip__k mono">설립</span>
-        <span class="strip__v">2026 <span class="strip__sub">· 경기 화성</span></span>
+        <span class="strip__k mono">베타</span>
+        <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
       </div>
       <div class="strip__cell">
-        <span class="strip__k mono">접근 방식</span>
-        <span class="strip__v">독립 운영 <span class="strip__sub">제품별 도메인</span></span>
+        <span class="strip__k mono">제작 사례</span>
+        <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
+      </div>
+      <div class="strip__cell">
+        <span class="strip__k mono">준비 중</span>
+        <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
       </div>
     </div>
   </div>
@@ -208,10 +208,10 @@ const PROJECTS = [
     accent: "oklch(0.68 0.16 135)",
   },
   {
-    n: "04", name: "Notedeck", domain: "notedeck.jium.io",
+    n: "04", name: "Notedeck", domain: null,
     status: "soon", statusLabel: "준비 중",
     tagline: "회의록보다 결정 기록.",
-    desc: "누가, 언제, 왜 결정했는지 남깁니다. 다음 액션은 자동으로 추적되며 결정의 맥락을 잃지 않습니다.",
+    desc: "회의에서 나온 결정과 다음 액션을 기록하는 도구를 준비합니다. 결정의 맥락을 놓치지 않는 흐름을 목표로 합니다.",
     tags: ["회의록", "의사결정", "문서"],
     art: "doc",
     accent: "oklch(0.62 0.16 18)",
@@ -315,8 +315,8 @@ document.getElementById("projects-slot").innerHTML = `
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">프로젝트</span>
-      <h2>제품과 홈페이지,<br/>각자의 도메인에서.</h2>
-      <p>자체 SaaS와 함께, 현장을 아는 업체의 홈페이지도 만듭니다. 각 작업은 독립된 도메인에서 운영됩니다.</p>
+      <h2>제품과 홈페이지,<br/>현재 상태를 한눈에.</h2>
+      <p>자체 SaaS와 현장 업체 홈페이지 작업을 소개합니다. 공개된 작업은 링크로, 아직 공개되지 않은 작업은 준비 상태로 표시합니다.</p>
     </div>
     <div class="projects">
       ${PROJECTS.map(p => `
@@ -333,10 +333,10 @@ document.getElementById("projects-slot").innerHTML = `
             <p class="proj__desc">${p.desc}</p>
             <div class="proj__tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
             <div class="proj__foot">
-              <a class="proj__link" href="https://${p.domain}" target="_blank" rel="noopener">
+              ${p.domain ? `<a class="proj__link" href="https://${p.domain}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} 사이트 새 창에서 열기">
                 <span class="proj__domain mono">${p.domain}</span>
                 <span class="proj__arrow" aria-hidden="true">↗</span>
-              </a>
+              </a>` : `<span class="proj__pending">사이트 준비 중</span>`}
             </div>
           </div>
           <div class="proj__art" aria-hidden="true" style="--proj-accent:${p.accent}">
