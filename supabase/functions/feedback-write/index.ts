@@ -47,7 +47,8 @@ Deno.serve(async (req) => {
   const length = Number(req.headers.get("content-length") ?? "0"); if (!Number.isFinite(length) || length > 8192) return fail(413, origin, "payload_too_large");
   let keys: { default?: string }; let secrets: { default?: string };
   try { keys = JSON.parse(Deno.env.get("SUPABASE_PUBLISHABLE_KEYS") ?? ""); secrets = JSON.parse(Deno.env.get("SUPABASE_SECRET_KEYS") ?? ""); } catch { return fail(503, origin, "unavailable"); }
-  const url = Deno.env.get("SUPABASE_URL"); if (!url || typeof keys.default !== "string" || typeof secrets.default !== "string" || req.headers.get("apikey") !== keys.default) return fail(503, origin, "unavailable");
+  const url = Deno.env.get("SUPABASE_URL"); if (!url || typeof keys.default !== "string" || typeof secrets.default !== "string") return fail(503, origin, "unavailable");
+  if (req.headers.get("apikey") !== keys.default) return fail(401, origin, "unauthorized");
   let raw: string; try { raw = await req.text(); } catch { return fail(400, origin, "invalid_json"); }
   if (new TextEncoder().encode(raw).length > 8192) return fail(413, origin, "payload_too_large");
   let input: Record<string, unknown>; try { input = JSON.parse(raw); } catch { return fail(400, origin, "invalid_json"); }
