@@ -5,35 +5,35 @@ window.JIUM = window.JIUM || {};
 const HERO = {
   workflow: () => `
     <section class="hero hero--workflow section--flush">
-      <div class="container hero__grid--workflow">
-        <div class="hero__copy">
+      <div class="container hero__workflow-cinema">
+        <div class="hero__copy hero__copy--cinema">
           <span class="eyebrow">JIUM LABS · 2026</span>
-          <h1>반복 업무는 줄이고,<br/><em>하나의 연결된</em><br/>워크플로우로.</h1>
-          <p class="hero__lead">JIUM LABS는 소규모 팀의 일상 업무를 자동화하는 <strong>실용적인 B2B SaaS</strong>와 비즈니스 가치를 전달하는 <strong>고품질 웹사이트</strong>를 설계합니다.</p>
-          <div class="hero__cta">
+          <h1 class="hero__h1--cinema">반복 업무는 줄이고,<br/><em>하나의 연결된</em> 워크플로우로.</h1>
+          <p class="hero__lead hero__lead--cinema">JIUM LABS는 소규모 팀의 일상 업무를 자동화하는 <strong>실용적인 B2B SaaS</strong>와 비즈니스 가치를 전달하는 <strong>고품질 웹사이트</strong>를 설계합니다.</p>
+          <div class="hero__cta hero__cta--cinema">
             <a class="btn btn--accent btn--lg" href="#projects">포트폴리오 둘러보기 <span aria-hidden="true">↓</span></a>
             <a class="btn btn--outline btn--lg" href="#cta">협업 및 제작 문의</a>
             <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
               영상으로 보기
             </a>
           </div>
-          <ul class="hero__meta">
+          <ul class="hero__meta hero__meta--cinema">
             <li><span class="mono">경기 화성 · 2026</span></li>
             <li><span class="mono">B2B SaaS & 맞춤형 웹</span></li>
             <li><span class="mono">100% 독립 도메인 운영</span></li>
           </ul>
         </div>
-        <div class="hero__stage-wrap">
-          <div class="workflow-stage">
+        <div class="hero__stage-wrap hero__stage-wrap--cinema">
+          <div class="workflow-stage workflow-stage--cinema">
             <div class="workflow-hud workflow-hud--top">
               <span class="workflow-hud__dot workflow-hud__dot--live"></span>
               <span class="workflow-hud__text">연결된 자동화 파이프라인</span>
               <span class="workflow-hud__badge">LIVE</span>
             </div>
-            <div class="workflow-stage__inner">
-              <video class="workflow-video" autoplay loop muted playsinline poster="assets/hero-workflow-poster.jpg?v=20260904_02">
-                <source src="assets/hero-workflow.mp4?v=20260904_02" type="video/mp4" />
+            <div class="workflow-stage__inner workflow-stage__inner--cinema">
+              <video class="workflow-video" autoplay loop muted playsinline poster="assets/hero-workflow-poster.jpg?v=20260904_04">
+                <source src="assets/hero-workflow.mp4?v=20260904_04" type="video/mp4" />
               </video>
               <div class="workflow-stage__overlay" aria-hidden="true"></div>
             </div>
