@@ -64,7 +64,7 @@ const HERO = {
           </div>
           <ul class="hero__meta">
             <li><span class="mono">경기 화성 · 2026</span></li>
-            <li><span class="mono">프로젝트 2종</span></li>
+            <li><span class="mono">프로젝트 6종</span></li>
             <li><span class="mono">독립 도메인 운영</span></li>
           </ul>
         </div>
@@ -82,7 +82,7 @@ const HERO = {
           <h1 class="hero__h1--big">팀이 쓰는 도구를<br/><em>한 곳에서</em> 짓습니다.</h1>
           <p class="hero__lead hero__lead--center">하나의 스튜디오에서 만드는 여러 작업. 공개 여부와 준비 상태는 프로젝트 카드에 표시합니다.</p>
           <div class="hero__cta hero__cta--center">
-            <a class="btn btn--accent btn--lg" href="#projects">프로젝트 보기 <span aria-hidden="true">→</span></a>
+            <a class="btn btn--accent btn--lg" href="#projects">프로젝트 6종 둘러보기 <span aria-hidden="true">→</span></a>
             <a class="btn btn--outline btn--lg" href="#approach">스튜디오 철학</a>
             <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
@@ -93,7 +93,7 @@ const HERO = {
       </div>
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          ${["PartStream / 자동 견적", "세일정밀산업 / 제조 웹사이트", "— JIUM LABS 2026"].concat(["PartStream / 자동 견적", "세일정밀산업 / 제조 웹사이트", "— JIUM LABS 2026"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
+          ${["PartStream / 3D CAD 견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 3D 뷰어", "(주)황토식품 / 식품유통 웹사이트", "OrderFlow / 발주 자동화", "(주)한빛테크 / 스마트팩토리", "— JIUM LABS 2026"].concat(["PartStream / 3D CAD 견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 3D 뷰어", "(주)황토식품 / 식품유통 웹사이트", "OrderFlow / 발주 자동화", "(주)한빛테크 / 스마트팩토리", "— JIUM LABS 2026"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
         </div>
       </div>
     </section>
@@ -214,12 +214,12 @@ document.getElementById("strip-slot").innerHTML = `
   <div class="container">
     <div class="strip__row">
       <div class="strip__cell">
-        <span class="strip__k mono">운영 중</span>
-        <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
+        <span class="strip__k mono">SaaS 라인업</span>
+        <span class="strip__v">3 <span class="strip__sub">솔루션</span></span>
       </div>
       <div class="strip__cell">
-        <span class="strip__k mono">제작 사례</span>
-        <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
+        <span class="strip__k mono">WebSite 제작</span>
+        <span class="strip__v">3 <span class="strip__sub">사례</span></span>
       </div>
       <div class="strip__cell">
         <span class="strip__k mono">자동 분석</span>
@@ -234,8 +234,8 @@ document.getElementById("strip-slot").innerHTML = `
 </section>
 `;
 
-/* ---------- PROJECTS (메인 포트폴리오) ---------- */
-const PROJECTS = [
+/* ---------- PROJECTS (카테고리별 포트폴리오 데이터) ---------- */
+const PROJECTS_SAAS = [
   {
     n: "01",
     name: "PartStream",
@@ -244,9 +244,8 @@ const PROJECTS = [
     catBadge: "[ B2B SAAS · 3D 견적 ]",
     status: "live",
     statusLabel: "운영 중",
-    tagline: "3D 파일을 올리면 견적이 바로 나옵니다.",
+    tagline: "3D 도면 파일 업로드 즉시 자동 견적 산출",
     desc: "STL·STEP 파일을 자동 분석해 부피·면적·가공 난이도를 추출하고, 재료비·가공비·셋업비까지 투명하게 산출합니다. 거래명세서 PDF와 월정산 자동화로 견적부터 정산까지 한 흐름.",
-    tags: ["제조 견적", "3D 자동 분석", "B2B SaaS"],
     accent: "#818CF8",
     desktop: {
       url: "partstream-pi.vercel.app",
@@ -254,13 +253,13 @@ const PROJECTS = [
       cta: "견적 시작",
       kicker: "3D CAD AUTO-QUOTE",
       title: "도면 올리면 견적 산출",
-      desc: "STL·STEP 1초 정밀 체적 및 가공비 계산",
+      desc: "STL·STEP 1초 체적 및 가공비 계산",
       btnMain: "3D 파일 업로드",
       btnSub: "견적서 샘플",
       visHtml: `
         <div class="m-cad-box">
           <div class="m-cad-svg-wrap">
-            <svg width="44" height="44" viewBox="0 0 48 48" fill="none">
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
               <path d="M24 4L42 14.5V33.5L24 44L6 33.5V14.5L24 4Z" stroke="#818CF8" stroke-width="1.8" fill="rgba(129, 140, 248, 0.08)"/>
               <path d="M24 4V44M24 24L42 14.5M24 24L6 14.5" stroke="#818CF8" stroke-width="1.4" stroke-dasharray="2 2"/>
               <circle cx="24" cy="24" r="2.5" fill="#818CF8"/>
@@ -273,7 +272,7 @@ const PROJECTS = [
           </div>
         </div>
       `,
-      feet: ["STL/STEP 분석", "실시간 단가 산출", "명세서 자동발행"]
+      feet: ["STL/STEP 분석", "실시간 단가", "명세서 자동"]
     },
     mobile: {
       tag: "3D 견적",
@@ -291,20 +290,123 @@ const PROJECTS = [
   },
   {
     n: "02",
-    name: "세일정밀산업",
+    name: "CAD Studio",
+    domain: null,
+    category: "saas",
+    catBadge: "[ B2B SAAS · 3D 뷰어 ]",
+    status: "beta",
+    statusLabel: "베타",
+    tagline: "웹 브라우저 무설치 3D CAD 뷰어 & 측정 도구",
+    desc: "별도 소프트웨어 설치 없이 브라우저에서 3D 도면을 열고 다각도 회전, 치수 측정, 단면 분석을 실시간으로 수행합니다.",
+    accent: "#06B6D4",
+    desktop: {
+      url: "cadstudio.jiumlabs.com",
+      nav: ["뷰어 기능", "지원 포맷", "엔터프라이즈"],
+      cta: "무료 체험",
+      kicker: "WEB 3D CAD VIEWER",
+      title: "설치 없는 웹 CAD 뷰어",
+      desc: "브라우저에서 STEP/IGES 치수 측정 및 단면 분석",
+      btnMain: "3D 뷰어 실행",
+      btnSub: "샘플 도면 보기",
+      visHtml: `
+        <div class="m-cad-box">
+          <div class="m-cad-svg-wrap">
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+              <rect x="8" y="8" width="32" height="32" rx="4" stroke="#06B6D4" stroke-width="1.8" fill="rgba(6, 182, 212, 0.08)"/>
+              <circle cx="24" cy="24" r="8" stroke="#06B6D4" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <line x1="8" y1="24" x2="40" y2="24" stroke="#06B6D4" stroke-width="1.2" opacity="0.6"/>
+              <line x1="24" y1="8" x2="24" y2="40" stroke="#06B6D4" stroke-width="1.2" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="m-cad-info">
+            <span class="mono m-cad-fn">engine_block.step</span>
+            <span class="mono m-cad-dim">정밀도 0.001mm · 60fps</span>
+            <span class="m-cad-price" style="color:#06B6D4; font-size:9.5px;">측정 모드 가동</span>
+          </div>
+        </div>
+      `,
+      feet: ["STEP/IGES/STL", "실시간 단면도", "원클릭 공유"]
+    },
+    mobile: {
+      tag: "모바일 뷰어",
+      title: "스마트폰에서도<br/>3D 도면 회전",
+      cardHtml: `
+        <div class="mob-card__row">
+          <span>engine_block</span>
+          <span class="mob-badge" style="color:#06B6D4; border-color:rgba(6,182,212,0.3)">60 FPS</span>
+        </div>
+        <div class="mob-card__dim">단면 절단선 분석 완료</div>
+        <div class="mob-card__price" style="color:#06B6D4; font-size:7.5px;">치수: 120 × 85 mm</div>
+      `,
+      btn: "도면 공유하기"
+    }
+  },
+  {
+    n: "03",
+    name: "OrderFlow",
+    domain: null,
+    category: "saas",
+    catBadge: "[ B2B SAAS · 발주 연동 ]",
+    status: "soon",
+    statusLabel: "준비 중",
+    tagline: "제조·유통 협력사 간 발주 접수 및 거래명세서 자동화",
+    desc: "반복적인 발주서 취합, 전표 처리, 거래명세서 발행을 클라우드로 연결해 수작업 오류를 제로화합니다.",
+    accent: "#10B981",
+    desktop: {
+      url: "orderflow.jiumlabs.com",
+      nav: ["발주 관리", "거래명세서", "ERP 연동"],
+      cta: "사전 예약",
+      kicker: "B2B ORDER PIPELINE",
+      title: "수기 발주를 자동 파이프라인으로",
+      desc: "발주 접수부터 PDF 거래명세서 발행까지 자동화",
+      btnMain: "파이프라인 시작",
+      btnSub: "연동 가이드",
+      visHtml: `
+        <div class="m-flow-box">
+          <div class="m-flow-row">
+            <span class="m-flow-node" style="border-color:#10B981; color:#10B981">발주 접수</span>
+            <span class="m-flow-arr">➔</span>
+            <span class="m-flow-node">자동 검증</span>
+            <span class="m-flow-arr">➔</span>
+            <span class="m-flow-node" style="border-color:#10B981; color:#10B981">명세서 발행</span>
+          </div>
+          <div class="m-flow-stat"><span class="m-flow-pulse" style="background:#10B981"></span> 전표 처리 자동화 가동</div>
+        </div>
+      `,
+      feet: ["발주서 자동인식", "전자명세서 PDF", "ERP 실시간 연동"]
+    },
+    mobile: {
+      tag: "실시간 발주",
+      title: "신규 발주서<br/>자동 승인 완료",
+      cardHtml: `
+        <div class="mob-card__row">
+          <span>발주 승인</span>
+          <span class="mob-badge mob-badge--live" style="color:#10B981; border-color:rgba(16,185,129,0.3)">승인 완료</span>
+        </div>
+        <div class="mob-card__dim">세일정밀 발주 3건</div>
+        <div class="mob-card__price" style="color:#10B981; font-size:7.5px;">거래명세서 즉시 전송</div>
+      `,
+      btn: "발주 내역 확인"
+    }
+  }
+];
+
+const PROJECTS_SITE = [
+  {
+    n: "01",
+    name: "(주)세일정밀산업",
     domain: "seil-precision.vercel.app",
     category: "site",
-    catBadge: "[ COMPANY · 제조기업 웹사이트 ]",
+    catBadge: "[ COMPANY · 정밀제조 ]",
     status: "work",
     statusLabel: "제작 사례",
-    tagline: "제조 현장을 그대로 담은 홈페이지.",
-    desc: "경주 금형·시제품·정밀가공 업체를 위해 만든 웹사이트 샘플입니다. 히어로부터 설비·작업·도면 문의까지, 공장의 리듬으로 이어집니다.",
-    tags: ["홈페이지 제작", "제조업 브랜딩", "반응형 웹"],
+    tagline: "제조 현장의 리듬과 신뢰를 담은 5축 정밀가공 웹사이트",
+    desc: "경주 금형·시제품·정밀가공 업체를 위해 만든 웹사이트. 독일 하이덴하인·HERMLE 5축 설비부터 도면 문의까지 원스톱으로 이어집니다.",
     accent: "#FF7A00",
     desktop: {
       url: "seil-precision.vercel.app",
       nav: ["회사소개", "설비현황", "가공사례"],
-      cta: "도면문의",
+      cta: "도면 문의",
       kicker: "SEIL PRECISION · GYEONGJU",
       title: "도면이 정밀 금형이 됩니다",
       desc: "독일 하이덴하인·HERMLE 5축 설비 기반 맞춤 가공",
@@ -331,6 +433,103 @@ const PROJECTS = [
         <div class="mob-card__price" style="color:#FF7A00; font-size:7.5px;">054-000-0000</div>
       `,
       btn: "📞 상담 전화 연결"
+    }
+  },
+  {
+    n: "02",
+    name: "(주)황토식품",
+    domain: null,
+    category: "site",
+    catBadge: "[ COMPANY · 식품유통 ]",
+    status: "work",
+    statusLabel: "제작 사례",
+    tagline: "56년 전통 건어물·견과류 제조유통 브랜드 공식 웹사이트",
+    desc: "황토마을 브랜드 소개부터 위생적인 건어물·견과류 제조 공정, 전국 유통망 안내까지 정갈하고 직관적인 비주얼로 구현했습니다.",
+    accent: "#EAB308",
+    desktop: {
+      url: "hwangto.co.kr",
+      nav: ["회사소개", "브랜드소개", "제품소개", "고객센터"],
+      cta: "제품 보기",
+      kicker: "NUTS & FISHERY 황토마을",
+      title: "Your Pocket Friend",
+      desc: "56년 전통 프리미엄 건어물 및 견과류 유통·제조",
+      btnMain: "브랜드 스토리",
+      btnSub: "사업분야 보기",
+      visHtml: `
+        <div class="m-food-box">
+          <span class="m-food-badge">56년 역사와 함께하는 (주)황토식품</span>
+          <div class="m-food-grid">
+            <div class="m-food-col"><span>🚚 건어물 유통</span></div>
+            <div class="m-food-col"><span>🏭 견과 가공제조</span></div>
+          </div>
+        </div>
+      `,
+      feet: ["HACCP 위생인증", "전국 온·오프라인 유통", "맞춤 선물세트"]
+    },
+    mobile: {
+      tag: "황토마을",
+      title: "건어물·견과류<br/>대표 브랜드",
+      cardHtml: `
+        <div class="mob-card__row">
+          <span>브랜드</span>
+          <span class="mob-badge" style="color:#EAB308; border-color:rgba(234,179,8,0.3)">황토식품</span>
+        </div>
+        <div class="mob-card__dim">건어물 유통의 선두주자</div>
+        <div class="mob-card__price" style="color:#EAB308; font-size:7.5px;">HACCP 클린 공정</div>
+      `,
+      btn: "제품 카탈로그"
+    }
+  },
+  {
+    n: "03",
+    name: "(주)한빛테크",
+    domain: null,
+    category: "site",
+    catBadge: "[ COMPANY · 스마트팩토리 ]",
+    status: "work",
+    statusLabel: "제작 사례",
+    tagline: "반도체 자동화 장비 및 스마트팩토리 솔루션 웹사이트",
+    desc: "클린룸 자동화 장비와 정밀 지그 설계 역량을 글로벌 고객사에 효과적으로 어필할 수 있는 엔지니어링 브랜딩 웹사이트.",
+    accent: "#3B82F6",
+    desktop: {
+      url: "hanbit-tech.co.kr",
+      nav: ["사업영역", "클린룸설비", "연구개발"],
+      cta: "기술 문의",
+      kicker: "SMART FACTORY & ROBOTICS",
+      title: "차세대 반도체 자동화 장비",
+      desc: "초정밀 자동화 지그 및 클린룸 제어 시스템",
+      btnMain: "장비 포트폴리오",
+      btnSub: "인증 현황",
+      visHtml: `
+        <div class="m-cad-box">
+          <div class="m-cad-svg-wrap">
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+              <path d="M12 36V16L24 8L36 16V36L24 44L12 36Z" stroke="#3B82F6" stroke-width="1.8" fill="rgba(59, 130, 246, 0.08)"/>
+              <circle cx="24" cy="24" r="5" fill="#3B82F6"/>
+              <path d="M24 13V19M24 29V35M15 24H21M27 24H33" stroke="#3B82F6" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div class="m-cad-info">
+            <span class="mono m-cad-fn">Cleanroom 100 Class</span>
+            <span class="mono m-cad-dim">지그 정밀도 3μm</span>
+            <span class="m-cad-price" style="color:#3B82F6; font-size:9.5px;">ISO 9001 인증</span>
+          </div>
+        </div>
+      `,
+      feet: ["클린룸 Class 100", "정밀 공차 3μm", "국내외 대기업 납품"]
+    },
+    mobile: {
+      tag: "기술 신뢰",
+      title: "반도체 설비<br/>전문 엔지니어링",
+      cardHtml: `
+        <div class="mob-card__row">
+          <span>인증 현황</span>
+          <span class="mob-badge" style="color:#3B82F6; border-color:rgba(59,130,246,0.3)">ISO 9001</span>
+        </div>
+        <div class="mob-card__dim">클린룸 100 Class 설비</div>
+        <div class="mob-card__price" style="color:#3B82F6; font-size:7.5px;">스마트 팩토리 연동</div>
+      `,
+      btn: "설비 상담 문의"
     }
   }
 ];
@@ -405,83 +604,61 @@ function dualMockup(p) {
   `;
 }
 
+function renderCard(p) {
+  return `
+    <article class="wize-card" data-category="${p.category}" style="--proj-accent:${p.accent}">
+      <div class="wize-card__preview">
+        ${dualMockup(p)}
+        <a class="wize-card__overlay" ${p.domain ? `href="https://${p.domain}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} 사이트 방문"` : `href="#cta"`}>
+          <span class="wize-card__click blink">Click</span>
+          <span class="wize-card__action-text">${p.domain ? "웹사이트 바로가기 ↗" : "제작 문의하기 ↗"}</span>
+        </a>
+      </div>
+      <div class="wize-card__caption">
+        <span class="wize-card__cat mono">${p.catBadge}</span>
+        <h4 class="wize-card__name">${p.name}</h4>
+        ${p.tagline ? `<p class="wize-card__tagline">${p.tagline}</p>` : ''}
+      </div>
+    </article>
+  `;
+}
+
 document.getElementById("projects-slot").innerHTML = `
 <section class="section" id="projects">
   <div class="container">
     <div class="section__head">
       <span class="eyebrow">PORTFOLIO</span>
       <h2>지음랩스 크리에이티브 & 솔루션</h2>
-      <p>와이즈디자인처럼 명확하고 직관적인 쇼케이스. 자체 개발 SaaS 도구와 현장 가치를 높이는 맞춤형 홈페이지 제작 사례를 둘러보세요.</p>
+      <p>와이즈디자인처럼 명확하고 직관적인 쇼케이스. 자체 개발 SaaS 솔루션과 기업의 가치를 높이는 맞춤형 웹사이트 제작 사례를 둘러보세요.</p>
     </div>
 
-    <div class="port-head">
-      <div class="port-tabs" role="tablist" aria-label="포트폴리오 분류">
-        <button class="port-tab port-tab--active" data-filter="all" type="button" role="tab" aria-selected="true">
-          전체보기 <span class="port-tab__badge">2</span>
-        </button>
-        <button class="port-tab" data-filter="saas" type="button" role="tab" aria-selected="false">
-          SaaS 솔루션 <span class="port-tab__badge">1</span>
-        </button>
-        <button class="port-tab" data-filter="site" type="button" role="tab" aria-selected="false">
-          홈페이지 제작사례 <span class="port-tab__badge">1</span>
-        </button>
+    <!-- Category 1: SaaS 솔루션 -->
+    <div class="port-group">
+      <div class="port-group__head">
+        <div class="port-group__title-wrap">
+          <span class="port-group__badge">CATEGORY 01</span>
+          <h3 class="port-group__title">SaaS 솔루션</h3>
+        </div>
+        <p class="port-group__desc">3D CAD 도면 분석부터 실시간 견적·발주 자동화까지, 팀의 반복 업무를 줄이는 B2B 소프트웨어</p>
+      </div>
+      <div class="port-row">
+        ${PROJECTS_SAAS.map(p => renderCard(p)).join("")}
       </div>
     </div>
 
-    <div class="wize-grid" id="portfolio-grid">
-      ${PROJECTS.map(p => `
-        <article class="wize-card" data-category="${p.category}" style="--proj-accent:${p.accent}">
-          <div class="wize-card__preview">
-            ${dualMockup(p)}
-            <a class="wize-card__overlay" ${p.domain ? `href="https://${p.domain}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} 사이트 방문"` : `href="#cta"`}>
-              <span class="wize-card__click blink">Click</span>
-              <span class="wize-card__action-text">${p.domain ? "웹사이트 바로가기 ↗" : "제작 문의하기 ↗"}</span>
-            </a>
-          </div>
-          <div class="wize-card__body">
-            <div class="wize-card__meta-row">
-              <span class="wize-card__cat mono">${p.catBadge}</span>
-              <span class="proj__status proj__status--${p.status}">
-                <span class="proj__pulse"></span>${p.statusLabel}
-              </span>
-            </div>
-            <h3 class="wize-card__name">${p.name}</h3>
-            <p class="wize-card__tagline">${p.tagline}</p>
-            <p class="wize-card__desc">${p.desc}</p>
-            <div class="wize-card__tags">
-              ${p.tags.map(t => `<span>${t}</span>`).join("")}
-            </div>
-            <div class="wize-card__foot">
-              ${p.domain ? `
-                <a class="wize-card__domain" href="https://${p.domain}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} 사이트 새 창에서 열기">
-                  <span>${p.domain}</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-              ` : `
-                <span class="mono" style="font-size:12px; color:var(--fg-subtle);">사이트 준비 중</span>
-              `}
-            </div>
-          </div>
-        </article>
-      `).join("")}
+    <!-- Category 2: WebSite 제작 -->
+    <div class="port-group">
+      <div class="port-group__head">
+        <div class="port-group__title-wrap">
+          <span class="port-group__badge">CATEGORY 02</span>
+          <h3 class="port-group__title">WebSite 제작</h3>
+        </div>
+        <p class="port-group__desc">정밀 제조 현장부터 식품 유통까지, 비즈니스의 신뢰와 가치를 직관적으로 전달하는 고품질 맞춤형 웹사이트</p>
+      </div>
+      <div class="port-row">
+        ${PROJECTS_SITE.map(p => renderCard(p)).join("")}
+      </div>
     </div>
   </div>
 </section>
 `;
-
-/* Portfolio Tab Filter Interaction */
-document.querySelectorAll(".port-tab").forEach(tab => {
-  tab.addEventListener("click", () => {
-    document.querySelectorAll(".port-tab").forEach(t => {
-      t.classList.remove("port-tab--active");
-      t.setAttribute("aria-selected", "false");
-    });
-    tab.classList.add("port-tab--active");
-    tab.setAttribute("aria-selected", "true");
-    const filter = tab.getAttribute("data-filter");
-    document.querySelectorAll(".wize-card").forEach(card => {
-      const match = filter === "all" || card.getAttribute("data-category") === filter;
-      card.style.display = match ? "flex" : "none";
-    });
-  });
-});
