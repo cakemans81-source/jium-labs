@@ -152,12 +152,13 @@
   position: relative;
   text-decoration: none;
   color: inherit;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
   transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 .wize-card:hover {
   transform: translateY(-4px);
   border-color: rgba(255, 122, 0, 0.45);
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 35px -5px rgba(255, 122, 0, 0.18);
+  box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.14), 0 0 30px -5px rgba(255, 122, 0, 0.18);
 }
 
 /* Mockup preview area */
@@ -379,9 +380,9 @@
 .wize-card__cat {
   font-family: var(--font-sans);
   font-size: 12.5px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.05em;
-  color: #798BB4;
+  color: var(--fg-muted);
 }
 .wize-card__name {
   font-size: 20px;

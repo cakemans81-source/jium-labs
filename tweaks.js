@@ -1,7 +1,7 @@
 /* JIUM LABS — Tweaks panel (vanilla) */
 (function () {
   const DEFAULTS = /*EDITMODE-BEGIN*/{
-    "theme": "dark",
+    "theme": "light",
     "accent": "amber",
     "hero": "workflow"
   }/*EDITMODE-END*/;

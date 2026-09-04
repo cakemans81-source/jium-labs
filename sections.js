@@ -26,6 +26,21 @@ const HERO = {
         </div>
         <div class="hero__stage-wrap hero__stage-wrap--cinema">
           <div class="workflow-stage workflow-stage--cinema">
+            <div class="console-topbar">
+              <div class="console-screws">
+                <span class="console-screw"></span>
+                <span class="console-screw"></span>
+                <span class="console-screw"></span>
+              </div>
+              <div class="console-label">
+                <span class="console-indicator"></span>
+                <span>JIUM LABS · AUTOMATION CONSOLE PRO</span>
+              </div>
+              <div class="console-meta">
+                <span>PIPELINE ENGINE</span>
+                <span class="console-badge">ONLINE</span>
+              </div>
+            </div>
             <div class="workflow-hud workflow-hud--top">
               <span class="workflow-hud__dot workflow-hud__dot--live"></span>
               <span class="workflow-hud__text">연결된 자동화 파이프라인</span>
@@ -43,6 +58,7 @@ const HERO = {
               <span class="workflow-hud__badge">STUDIO</span>
             </div>
           </div>
+          <div class="console-stand-shadow" aria-hidden="true"></div>
         </div>
       </div>
     </section>

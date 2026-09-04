@@ -1,24 +1,26 @@
 /* ====================================================
    JIUM LABS — base styles
    ==================================================== */
-:root {
-  --bg: #FAFAF9;
+:root,
+[data-theme="light"] {
+  --bg: #F8FAFC;
   --bg-elev: #FFFFFF;
-  --bg-sunken: #F4F4F2;
-  --fg: #18181B;
-  --fg-muted: #6B6B72;
-  --fg-subtle: #9A9AA2;
-  --border: #E7E6E2;
-  --border-strong: #D8D7D2;
-  --accent: oklch(0.55 0.15 260);
-  --accent-soft: oklch(0.55 0.15 260 / 0.10);
+  --bg-sunken: #F1F5F9;
+  --fg: #0F172A;
+  --fg-muted: #475569;
+  --fg-subtle: #94A3B8;
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --accent: #FF7A00;
+  --accent-soft: rgba(255, 122, 0, 0.10);
+  --accent-glow: rgba(255, 122, 0, 0.35);
   --accent-fg: #FFFFFF;
   --radius-sm: 6px;
   --radius: 10px;
   --radius-lg: 16px;
   --radius-xl: 22px;
-  --shadow-sm: 0 1px 0 rgba(20,20,30,.04), 0 1px 2px rgba(20,20,30,.04);
-  --shadow: 0 1px 0 rgba(20,20,30,.04), 0 8px 24px -8px rgba(20,20,30,.08);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
   --container: 1200px;
   --gutter: 24px;
   --section-y: 112px;
