@@ -249,42 +249,10 @@ const PROJECTS_SAAS = [
     accent: "#818CF8",
     desktop: {
       url: "partstream-pi.vercel.app",
-      nav: ["견적체험", "기능소개", "요금안내"],
-      cta: "무료 체험",
-      kicker: "3D CAD AUTO-QUOTE · 견적온",
-      title: "3D 파일만 올리면 견적이 바로 계산됩니다",
-      desc: "STL·STEP 분석 후 재료비·가공비·셋업비 즉시 산출",
-      btnMain: "무료 견적 시작",
-      btnSub: "견적서 샘플",
-      visHtml: `
-        <div class="m-quoteon-box">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <span class="m-qo-badge">bracket.step 분석</span>
-            <span style="font-size:7px; color:#A5B4FC;">STL · STEP</span>
-          </div>
-          <div class="m-qo-stats">
-            <div class="m-qo-stat-item">부피 <strong>72.0 ㎤</strong></div>
-            <div class="m-qo-stat-item">표면적 <strong>418 ㎠</strong></div>
-            <div class="m-qo-stat-item">크기 <strong>120×80×24</strong></div>
-            <div class="m-qo-stat-item">재질 <strong>Al6061</strong></div>
-          </div>
-          <div class="m-qo-price">예상 견적 ₩ 75,600</div>
-        </div>
-      `,
-      feet: ["STEP 분석 완료", "재료·가공·셋업비", "거래명세서 PDF"]
+      img: "assets/portfolio/partstream-pc.png"
     },
     mobile: {
-      tag: "견적온 3D 분석",
-      title: "도면 업로드 즉시<br/>견적 계산 완료",
-      cardHtml: `
-        <div class="mob-card__row">
-          <span>bracket.step</span>
-          <span class="mob-badge">분석 완료</span>
-        </div>
-        <div class="mob-card__dim">부피 72.0㎤ · Al6061</div>
-        <div class="mob-card__price" style="color:#818CF8">₩ 75,600</div>
-      `,
-      btn: "견적서 다운로드"
+      img: "assets/portfolio/partstream-mob.png"
     }
   },
   {
@@ -300,44 +268,10 @@ const PROJECTS_SAAS = [
     accent: "#06B6D4",
     desktop: {
       url: "cadstudio.jiumlabs.com",
-      nav: ["뷰어 기능", "지원 포맷", "엔터프라이즈"],
-      cta: "무료 체험",
-      kicker: "WEB 3D CAD VIEWER",
-      title: "설치 없는 웹 CAD 뷰어",
-      desc: "브라우저에서 STEP/IGES 치수 측정 및 단면 분석",
-      btnMain: "3D 뷰어 실행",
-      btnSub: "샘플 도면 보기",
-      visHtml: `
-        <div class="m-cad-box">
-          <div class="m-cad-svg-wrap">
-            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
-              <rect x="8" y="8" width="32" height="32" rx="4" stroke="#06B6D4" stroke-width="1.8" fill="rgba(6, 182, 212, 0.08)"/>
-              <circle cx="24" cy="24" r="8" stroke="#06B6D4" stroke-width="1.5" stroke-dasharray="3 3"/>
-              <line x1="8" y1="24" x2="40" y2="24" stroke="#06B6D4" stroke-width="1.2" opacity="0.6"/>
-              <line x1="24" y1="8" x2="24" y2="40" stroke="#06B6D4" stroke-width="1.2" opacity="0.6"/>
-            </svg>
-          </div>
-          <div class="m-cad-info">
-            <span class="mono m-cad-fn">engine_block.step</span>
-            <span class="mono m-cad-dim">정밀도 0.001mm · 60fps</span>
-            <span class="m-cad-price" style="color:#06B6D4; font-size:9.5px;">측정 모드 가동</span>
-          </div>
-        </div>
-      `,
-      feet: ["STEP/IGES/STL", "실시간 단면도", "원클릭 공유"]
+      img: "assets/portfolio/cadstudio-pc.png"
     },
     mobile: {
-      tag: "모바일 뷰어",
-      title: "스마트폰에서도<br/>3D 도면 회전",
-      cardHtml: `
-        <div class="mob-card__row">
-          <span>engine_block</span>
-          <span class="mob-badge" style="color:#06B6D4; border-color:rgba(6,182,212,0.3)">60 FPS</span>
-        </div>
-        <div class="mob-card__dim">단면 절단선 분석 완료</div>
-        <div class="mob-card__price" style="color:#06B6D4; font-size:7.5px;">치수: 120 × 85 mm</div>
-      `,
-      btn: "도면 공유하기"
+      img: "assets/portfolio/cadstudio-mob.png"
     }
   },
   {
@@ -350,42 +284,13 @@ const PROJECTS_SAAS = [
     statusLabel: "준비 중",
     tagline: "제조·유통 협력사 간 발주 접수 및 거래명세서 자동화",
     desc: "반복적인 발주서 취합, 전표 처리, 거래명세서 발행을 클라우드로 연결해 수작업 오류를 제로화합니다.",
-    accent: "#10B981",
+    accent: "#A855F7",
     desktop: {
       url: "orderflow.jiumlabs.com",
-      nav: ["발주 관리", "거래명세서", "ERP 연동"],
-      cta: "사전 예약",
-      kicker: "B2B ORDER PIPELINE",
-      title: "수기 발주를 자동 파이프라인으로",
-      desc: "발주 접수부터 PDF 거래명세서 발행까지 자동화",
-      btnMain: "파이프라인 시작",
-      btnSub: "연동 가이드",
-      visHtml: `
-        <div class="m-flow-box">
-          <div class="m-flow-row">
-            <span class="m-flow-node" style="border-color:#10B981; color:#10B981">발주 접수</span>
-            <span class="m-flow-arr">➔</span>
-            <span class="m-flow-node">자동 검증</span>
-            <span class="m-flow-arr">➔</span>
-            <span class="m-flow-node" style="border-color:#10B981; color:#10B981">명세서 발행</span>
-          </div>
-          <div class="m-flow-stat"><span class="m-flow-pulse" style="background:#10B981"></span> 전표 처리 자동화 가동</div>
-        </div>
-      `,
-      feet: ["발주서 자동인식", "전자명세서 PDF", "ERP 실시간 연동"]
+      img: "assets/portfolio/orderflow-pc.png"
     },
     mobile: {
-      tag: "실시간 발주",
-      title: "신규 발주서<br/>자동 승인 완료",
-      cardHtml: `
-        <div class="mob-card__row">
-          <span>발주 승인</span>
-          <span class="mob-badge mob-badge--live" style="color:#10B981; border-color:rgba(16,185,129,0.3)">승인 완료</span>
-        </div>
-        <div class="mob-card__dim">세일정밀 발주 3건</div>
-        <div class="mob-card__price" style="color:#10B981; font-size:7.5px;">거래명세서 즉시 전송</div>
-      `,
-      btn: "발주 내역 확인"
+      img: "assets/portfolio/orderflow-mob.png"
     }
   }
 ];
@@ -404,34 +309,10 @@ const PROJECTS_SITE = [
     accent: "#FF7A00",
     desktop: {
       url: "seil-precision.vercel.app",
-      nav: ["소개", "설비", "제품", "시설"],
-      cta: "문의하기",
-      kicker: "SEIL PRECISION · GYEONGJU",
-      title: "까다로운 형상일수록 기술이 빛납니다",
-      desc: "DN솔루션즈 5축 머시닝센터 DVF 5000 기반 맞춤 가공",
-      btnMain: "온라인 도면 접수",
-      btnSub: "설비 스펙 보기",
-      visHtml: `
-        <div class="m-cnc-box">
-          <span class="m-cnc-badge">DN SOLUTIONS DVF 5000</span>
-          <div class="m-cnc-name">스트로크 625×450×400mm</div>
-          <div class="m-cnc-desc">12,000 RPM · 5축 복합 정밀가공<br/>ISO 9001 · 14001 · 벤처기업 인증</div>
-        </div>
-      `,
-      feet: ["DVF 5000 5축", "금형·시제품 가공", "3차원 정밀 측정"]
+      img: "assets/portfolio/seil-pc.png"
     },
     mobile: {
-      tag: "도면 접수",
-      title: "경주 5축 가공<br/>빠른 견적 상담",
-      cardHtml: `
-        <div class="mob-card__row">
-          <span>DVF 5000 5축</span>
-          <span class="mob-badge" style="color:#FF7A00; border-color:rgba(255,122,0,0.3)">당일 회신</span>
-        </div>
-        <div class="mob-card__dim">5축 정밀가공 · 시제품</div>
-        <div class="mob-card__price" style="color:#FF7A00; font-size:7.5px;">054-624-2335</div>
-      `,
-      btn: "📞 상담 전화 연결"
+      img: "assets/portfolio/seil-mob.png"
     }
   },
   {
@@ -447,39 +328,10 @@ const PROJECTS_SITE = [
     accent: "#0284C7",
     desktop: {
       url: "wise-design-cnc-bucheon.cakemans81.chatgpt.site",
-      nav: ["업무범위", "시제품의뢰", "제작사례", "보유장비"],
-      cta: "이메일 견적",
-      kicker: "BUCHEON · PLASTIC / AL CNC",
-      title: "소재를, 정밀한 부품으로",
-      desc: "ABS·POM·PC·MC 수지 및 AL 비철소재 정밀 가공",
-      btnMain: "도면 견적 문의",
-      btnSub: "제작 사례 보기",
-      visHtml: `
-        <div class="m-wd-box">
-          <div class="m-wd-head">
-            <span class="m-wd-badge">WISE DESIGN</span>
-            <span class="m-wd-equip">DNM 570/670 (4대)</span>
-          </div>
-          <div class="m-wd-lead">플라스틱·알루미늄 시제품 및 목업 제작</div>
-          <div class="m-wd-mats">
-            <span>ABS</span><span>POM</span><span>PC</span><span>MC</span><span>AL</span>
-          </div>
-        </div>
-      `,
-      feet: ["DNM 570·670 4대", "CIMATRON 작업", "춘의테크노파크"]
+      img: "assets/portfolio/wise-pc.png"
     },
     mobile: {
-      tag: "플라스틱·AL CNC",
-      title: "부천 시제품·목업<br/>정밀 가공 상담",
-      cardHtml: `
-        <div class="mob-card__row">
-          <span>보유 장비</span>
-          <span class="mob-badge" style="color:#0284C7; border-color:rgba(2,132,199,0.3)">DNM 570/670</span>
-        </div>
-        <div class="mob-card__dim">ABS·POM·PC·AL 정밀 가공</div>
-        <div class="mob-card__price" style="color:#0284C7; font-size:7.5px;">wise-design@naver.com</div>
-      `,
-      btn: "도면 견적 문의"
+      img: "assets/portfolio/wise-mob.png"
     }
   },
   {
@@ -495,43 +347,10 @@ const PROJECTS_SITE = [
     accent: "#3B82F6",
     desktop: {
       url: "hanbit-tech.co.kr",
-      nav: ["사업영역", "클린룸설비", "연구개발"],
-      cta: "기술 문의",
-      kicker: "SMART FACTORY & ROBOTICS",
-      title: "차세대 반도체 자동화 장비",
-      desc: "초정밀 자동화 지그 및 클린룸 제어 시스템",
-      btnMain: "장비 포트폴리오",
-      btnSub: "인증 현황",
-      visHtml: `
-        <div class="m-cad-box">
-          <div class="m-cad-svg-wrap">
-            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
-              <path d="M12 36V16L24 8L36 16V36L24 44L12 36Z" stroke="#3B82F6" stroke-width="1.8" fill="rgba(59, 130, 246, 0.08)"/>
-              <circle cx="24" cy="24" r="5" fill="#3B82F6"/>
-              <path d="M24 13V19M24 29V35M15 24H21M27 24H33" stroke="#3B82F6" stroke-width="1.4"/>
-            </svg>
-          </div>
-          <div class="m-cad-info">
-            <span class="mono m-cad-fn">Cleanroom 100 Class</span>
-            <span class="mono m-cad-dim">지그 정밀도 3μm</span>
-            <span class="m-cad-price" style="color:#3B82F6; font-size:9.5px;">ISO 9001 인증</span>
-          </div>
-        </div>
-      `,
-      feet: ["클린룸 Class 100", "정밀 공차 3μm", "국내외 대기업 납품"]
+      img: "assets/portfolio/hanbit-pc.png"
     },
     mobile: {
-      tag: "기술 신뢰",
-      title: "반도체 설비<br/>전문 엔지니어링",
-      cardHtml: `
-        <div class="mob-card__row">
-          <span>인증 현황</span>
-          <span class="mob-badge" style="color:#3B82F6; border-color:rgba(59,130,246,0.3)">ISO 9001</span>
-        </div>
-        <div class="mob-card__dim">클린룸 100 Class 설비</div>
-        <div class="mob-card__price" style="color:#3B82F6; font-size:7.5px;">스마트 팩토리 연동</div>
-      `,
-      btn: "설비 상담 문의"
+      img: "assets/portfolio/hanbit-mob.png"
     }
   }
 ];
@@ -552,33 +371,7 @@ function dualMockup(p) {
           <div class="mockup-desktop__url">${d.url}</div>
         </div>
         <div class="mockup-desktop__screen">
-          <div class="m-nav">
-            <div class="m-nav__logo">
-              <span class="m-nav__dot" style="background:${p.accent}"></span>
-              <span>${p.name}</span>
-            </div>
-            <div class="m-nav__links">
-              ${d.nav.map(n => `<span>${n}</span>`).join("")}
-            </div>
-            <span class="m-nav__cta" style="background:${p.accent}">${d.cta}</span>
-          </div>
-          <div class="m-hero">
-            <div class="m-hero__copy">
-              <span class="m-hero__kicker" style="color:${p.accent}">${d.kicker}</span>
-              <h4 class="m-hero__h">${d.title}</h4>
-              <p class="m-hero__p">${d.desc}</p>
-              <div class="m-hero__btns">
-                <span class="m-hero__btn-main" style="background:${p.accent}">${d.btnMain}</span>
-                <span class="m-hero__btn-sub">${d.btnSub}</span>
-              </div>
-            </div>
-            <div class="m-hero__vis">
-              ${d.visHtml}
-            </div>
-          </div>
-          <div class="m-feet">
-            ${d.feet.map(f => `<div class="m-feet__item">${f}</div>`).join("")}
-          </div>
+          <img class="mockup-desktop__img" src="${d.img}" alt="${p.name} PC 화면 스크린샷" loading="lazy" />
         </div>
       </div>
 
@@ -586,19 +379,7 @@ function dualMockup(p) {
       <div class="mockup-mobile">
         <div class="mockup-mobile__notch"></div>
         <div class="mockup-mobile__screen">
-          <div class="mob-nav">
-            <span class="mob-nav__logo" style="color:${p.accent}">${p.name}</span>
-            <span class="mob-nav__burger">☰</span>
-          </div>
-          <div class="mob-body">
-            <span class="mob-tag" style="color:${p.accent}">${m.tag}</span>
-            <h5 class="mob-title">${m.title}</h5>
-            <div class="mob-card">
-              ${m.cardHtml}
-            </div>
-            <span class="mob-btn" style="background:${p.accent}">${m.btn}</span>
-          </div>
-          <div class="mob-home-bar"></div>
+          <img class="mockup-mobile__img" src="${m.img}" alt="${p.name} 모바일 화면 스크린샷" loading="lazy" />
         </div>
         <div class="mockup-mobile__bar"></div>
       </div>
