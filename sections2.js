@@ -120,24 +120,17 @@ document.getElementById("cta-slot").innerHTML = `
     <div class="fb-promo__preview">
       <span class="fb-promo__preview-label">화면 예시 · 실제 데이터 아님</span>
       <div class="fb-promo__card" aria-hidden="true">
-        <span class="fb-promo__pdot" style="background:oklch(0.55 0.15 260)"></span>
+        <span class="fb-promo__pdot" style="background:#818CF8"></span>
         <div>
-          <div class="fb-promo__t">받은편지함 다중 선택으로 일괄 답장</div>
-          <div class="fb-promo__m mono">PartStream · 피드백 예시</div>
+          <div class="fb-promo__t">3D 도면 STL·STEP 파일 체적 자동 분석 속도 개선</div>
+          <div class="fb-promo__m mono">PartStream · 기능 개선</div>
         </div>
       </div>
       <div class="fb-promo__card" aria-hidden="true">
-        <span class="fb-promo__pdot" style="background:oklch(0.58 0.13 158)"></span>
+        <span class="fb-promo__pdot" style="background:#FF7A00"></span>
         <div>
-          <div class="fb-promo__t">Webhook 한글 페이로드 인코딩 수정</div>
-          <div class="fb-promo__m mono">Loomi · 피드백 예시</div>
-        </div>
-      </div>
-      <div class="fb-promo__card fb-promo__card--dim" aria-hidden="true">
-        <span class="fb-promo__pdot" style="background:oklch(0.70 0.15 70)"></span>
-        <div>
-          <div class="fb-promo__t">주간 리포트 PDF 자동 저장</div>
-          <div class="fb-promo__m mono">Notedeck · 피드백 예시</div>
+          <div class="fb-promo__t">모바일 가공설비 갤러리 및 견적 상담 모달 추가</div>
+          <div class="fb-promo__m mono">세일정밀산업 · 제작 사례</div>
         </div>
       </div>
     </div>

@@ -64,7 +64,7 @@ const HERO = {
           </div>
           <ul class="hero__meta">
             <li><span class="mono">경기 화성 · 2026</span></li>
-            <li><span class="mono">프로젝트 4종</span></li>
+            <li><span class="mono">프로젝트 2종</span></li>
             <li><span class="mono">독립 도메인 운영</span></li>
           </ul>
         </div>
@@ -82,7 +82,7 @@ const HERO = {
           <h1 class="hero__h1--big">팀이 쓰는 도구를<br/><em>한 곳에서</em> 짓습니다.</h1>
           <p class="hero__lead hero__lead--center">하나의 스튜디오에서 만드는 여러 작업. 공개 여부와 준비 상태는 프로젝트 카드에 표시합니다.</p>
           <div class="hero__cta hero__cta--center">
-            <a class="btn btn--accent btn--lg" href="#projects">프로젝트 4종 보기 <span aria-hidden="true">→</span></a>
+            <a class="btn btn--accent btn--lg" href="#projects">프로젝트 보기 <span aria-hidden="true">→</span></a>
             <a class="btn btn--outline btn--lg" href="#approach">스튜디오 철학</a>
             <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
@@ -93,7 +93,7 @@ const HERO = {
       </div>
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          ${["PartStream / 자동 견적", "Loomi / 자동화 워크플로우", "세일정밀 / 홈페이지", "Notedeck / 회의록", "— JIUM 09"].concat(["PartStream / 자동 견적", "Loomi / 자동화 워크플로우", "세일정밀 / 홈페이지", "Notedeck / 회의록", "— JIUM 09"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
+          ${["PartStream / 자동 견적", "세일정밀산업 / 제조 웹사이트", "— JIUM LABS 2026"].concat(["PartStream / 자동 견적", "세일정밀산업 / 제조 웹사이트", "— JIUM LABS 2026"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
         </div>
       </div>
     </section>
@@ -165,7 +165,7 @@ function heroEditorArt() {
     <div class="art__win">
       <div class="art__winbar">
         <span class="art__tl"></span><span class="art__tl"></span><span class="art__tl"></span>
-        <span class="mono art__url">notedeck — 회의록 / 2026-05-18</span>
+        <span class="mono art__url">jiumlabs — 워크스페이스 / 2026</span>
       </div>
       <div class="art__doc">
         <div class="art__tag mono">결정</div>
@@ -218,16 +218,16 @@ document.getElementById("strip-slot").innerHTML = `
         <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
       </div>
       <div class="strip__cell">
-        <span class="strip__k mono">베타</span>
-        <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
-      </div>
-      <div class="strip__cell">
         <span class="strip__k mono">제작 사례</span>
         <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
       </div>
       <div class="strip__cell">
-        <span class="strip__k mono">준비 중</span>
-        <span class="strip__v">1 <span class="strip__sub">프로젝트</span></span>
+        <span class="strip__k mono">자동 분석</span>
+        <span class="strip__v">3D <span class="strip__sub">CAD 견적</span></span>
+      </div>
+      <div class="strip__cell">
+        <span class="strip__k mono">정밀 제조</span>
+        <span class="strip__v">5축 <span class="strip__sub">맞춤 가공</span></span>
       </div>
     </div>
   </div>
@@ -291,55 +291,6 @@ const PROJECTS = [
   },
   {
     n: "02",
-    name: "Loomi",
-    domain: "loomi.jium.io",
-    category: "saas",
-    catBadge: "[ AUTOMATION · 워크플로우 ]",
-    status: "beta",
-    statusLabel: "베타",
-    tagline: "노코드 워크플로우 자동화.",
-    desc: "트리거·규칙·액션 세 가지 블록으로 반복 업무를 자동화합니다. 슬랙·이메일·웹훅으로 결과를 흘려보냅니다.",
-    tags: ["자동화", "워크플로우", "노코드"],
-    accent: "#10B981",
-    desktop: {
-      url: "loomi.jium.io",
-      nav: ["템플릿", "연동앱", "엔터프라이즈"],
-      cta: "파이프라인 생성",
-      kicker: "NO-CODE PIPELINE",
-      title: "업무를 멈추지 않는 자동화",
-      desc: "슬랙, 웹훅, 구글시트, DB를 한 번에 연동",
-      btnMain: "새 워크플로우",
-      btnSub: "템플릿 보기",
-      visHtml: `
-        <div class="m-flow-box">
-          <div class="m-flow-row">
-            <span class="m-flow-node" style="border-color:#10B981; color:#10B981">주문 트리거</span>
-            <span class="m-flow-arr">➔</span>
-            <span class="m-flow-node">필터</span>
-            <span class="m-flow-arr">➔</span>
-            <span class="m-flow-node" style="border-color:#10B981; color:#10B981">Slack</span>
-          </div>
-          <div class="m-flow-stat"><span class="m-flow-pulse"></span> 99.98% 정상 가동 중</div>
-        </div>
-      `,
-      feet: ["200+ 앱 연동", "0초 지연 웹훅", "조건 분기 엔진"]
-    },
-    mobile: {
-      tag: "실시간 모니터링",
-      title: "파이프라인<br/>정상 가동 중",
-      cardHtml: `
-        <div class="mob-card__row">
-          <span>실행 성공률</span>
-          <span class="mob-badge mob-badge--live">99.98%</span>
-        </div>
-        <div class="mob-card__dim">오늘 처리 1,248건</div>
-        <div class="mob-card__price" style="color:#10B981; font-size:7.5px;">✔ Slack 알림 발송</div>
-      `,
-      btn: "실행 로그 보기"
-    }
-  },
-  {
-    n: "03",
     name: "세일정밀산업",
     domain: "seil-precision.vercel.app",
     category: "site",
@@ -380,51 +331,6 @@ const PROJECTS = [
         <div class="mob-card__price" style="color:#FF7A00; font-size:7.5px;">054-000-0000</div>
       `,
       btn: "📞 상담 전화 연결"
-    }
-  },
-  {
-    n: "04",
-    name: "Notedeck",
-    domain: null,
-    category: "saas",
-    catBadge: "[ B2B SAAS · 의사결정 ]",
-    status: "soon",
-    statusLabel: "준비 중",
-    tagline: "회의록보다 결정 기록.",
-    desc: "회의에서 나온 결정과 다음 액션을 기록하는 도구를 준비합니다. 결정의 맥락을 놓치지 않는 흐름을 목표로 합니다.",
-    tags: ["회의록", "의사결정", "업무 문서"],
-    accent: "#F43F5E",
-    desktop: {
-      url: "notedeck.app / upcoming",
-      nav: ["기능소개", "회의템플릿", "팀플랜"],
-      cta: "무료 체험",
-      kicker: "DECISION & ACTION",
-      title: "회의록 대신 결정만 남깁니다",
-      desc: "결정의 맥락과 담당자, 다음 마감일을 추적",
-      btnMain: "결정록 시작",
-      btnSub: "팀 초대",
-      visHtml: `
-        <div class="m-note-box">
-          <span class="m-note-tag">결정 확정 · 05/18</span>
-          <div class="m-note-title">Q2 제품 출시 확정</div>
-          <div class="m-note-todo"><span class="m-note-chk m-note-chk--on">✔</span> 도메인 DNS 전환</div>
-          <div class="m-note-todo"><span class="m-note-chk"></span> 가격표 공지</div>
-        </div>
-      `,
-      feet: ["의사결정 아카이빙", "자동 담당자 멘션", "주간 액션 리포트"]
-    },
-    mobile: {
-      tag: "오늘의 액션",
-      title: "나에게 할당된<br/>결정 과제 (3)",
-      cardHtml: `
-        <div class="mob-card__row">
-          <span>실행 현황</span>
-          <span class="mob-badge" style="color:#F43F5E; border-color:rgba(244,63,94,0.3)">2/3 완료</span>
-        </div>
-        <div class="mob-card__dim">✔ DNS 전환 완료</div>
-        <div class="mob-card__price" style="color:#F43F5E; font-size:7.5px;">◻ 베타 테스터 발송</div>
-      `,
-      btn: "과제 체크하기"
     }
   }
 ];
@@ -511,10 +417,10 @@ document.getElementById("projects-slot").innerHTML = `
     <div class="port-head">
       <div class="port-tabs" role="tablist" aria-label="포트폴리오 분류">
         <button class="port-tab port-tab--active" data-filter="all" type="button" role="tab" aria-selected="true">
-          전체보기 <span class="port-tab__badge">4</span>
+          전체보기 <span class="port-tab__badge">2</span>
         </button>
         <button class="port-tab" data-filter="saas" type="button" role="tab" aria-selected="false">
-          SaaS 솔루션 <span class="port-tab__badge">3</span>
+          SaaS 솔루션 <span class="port-tab__badge">1</span>
         </button>
         <button class="port-tab" data-filter="site" type="button" role="tab" aria-selected="false">
           홈페이지 제작사례 <span class="port-tab__badge">1</span>
