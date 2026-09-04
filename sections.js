@@ -225,137 +225,266 @@ document.getElementById("strip-slot").innerHTML = `
 /* ---------- PROJECTS (메인 포트폴리오) ---------- */
 const PROJECTS = [
   {
-    n: "01", name: "PartStream", domain: "partstream-pi.vercel.app",
-    category: "saas", catBadge: "[ B2B SAAS · 3D 견적 ]",
-    status: "live", statusLabel: "운영 중",
+    n: "01",
+    name: "PartStream",
+    domain: "partstream-pi.vercel.app",
+    category: "saas",
+    catBadge: "[ B2B SAAS · 3D 견적 ]",
+    status: "live",
+    statusLabel: "운영 중",
     tagline: "3D 파일을 올리면 견적이 바로 나옵니다.",
     desc: "STL·STEP 파일을 자동 분석해 부피·면적·가공 난이도를 추출하고, 재료비·가공비·셋업비까지 투명하게 산출합니다. 거래명세서 PDF와 월정산 자동화로 견적부터 정산까지 한 흐름.",
     tags: ["제조 견적", "3D 자동 분석", "B2B SaaS"],
-    art: "quote",
     accent: "#818CF8",
+    desktop: {
+      url: "partstream-pi.vercel.app",
+      nav: ["솔루션", "견적체험", "고객사례"],
+      cta: "견적 시작",
+      kicker: "3D CAD AUTO-QUOTE",
+      title: "도면 올리면 견적 산출",
+      desc: "STL·STEP 1초 정밀 체적 및 가공비 계산",
+      btnMain: "3D 파일 업로드",
+      btnSub: "견적서 샘플",
+      visHtml: `
+        <div class="m-cad-box">
+          <div class="m-cad-svg-wrap">
+            <svg width="44" height="44" viewBox="0 0 48 48" fill="none">
+              <path d="M24 4L42 14.5V33.5L24 44L6 33.5V14.5L24 4Z" stroke="#818CF8" stroke-width="1.8" fill="rgba(129, 140, 248, 0.08)"/>
+              <path d="M24 4V44M24 24L42 14.5M24 24L6 14.5" stroke="#818CF8" stroke-width="1.4" stroke-dasharray="2 2"/>
+              <circle cx="24" cy="24" r="2.5" fill="#818CF8"/>
+            </svg>
+          </div>
+          <div class="m-cad-info">
+            <span class="mono m-cad-fn">part_v2.stl</span>
+            <span class="mono m-cad-dim">32.4 cm³ · Al6061</span>
+            <span class="m-cad-price">₩ 34,400</span>
+          </div>
+        </div>
+      `,
+      feet: ["STL/STEP 분석", "실시간 단가 산출", "명세서 자동발행"]
+    },
+    mobile: {
+      tag: "3D 견적",
+      title: "도면 업로드 즉시<br/>견적 확인",
+      cardHtml: `
+        <div class="mob-card__row">
+          <span>part_v2.stl</span>
+          <span class="mob-badge">분석 완료</span>
+        </div>
+        <div class="mob-card__dim">32.4 cm³ · 5축 가공</div>
+        <div class="mob-card__price" style="color:#818CF8">₩ 34,400</div>
+      `,
+      btn: "견적서 다운로드"
+    }
   },
   {
-    n: "02", name: "Loomi", domain: "loomi.jium.io",
-    category: "saas", catBadge: "[ AUTOMATION · 워크플로우 ]",
-    status: "beta", statusLabel: "베타",
+    n: "02",
+    name: "Loomi",
+    domain: "loomi.jium.io",
+    category: "saas",
+    catBadge: "[ AUTOMATION · 워크플로우 ]",
+    status: "beta",
+    statusLabel: "베타",
     tagline: "노코드 워크플로우 자동화.",
     desc: "트리거·규칙·액션 세 가지 블록으로 반복 업무를 자동화합니다. 슬랙·이메일·웹훅으로 결과를 흘려보냅니다.",
     tags: ["자동화", "워크플로우", "노코드"],
-    art: "flow",
     accent: "#10B981",
+    desktop: {
+      url: "loomi.jium.io",
+      nav: ["템플릿", "연동앱", "엔터프라이즈"],
+      cta: "파이프라인 생성",
+      kicker: "NO-CODE PIPELINE",
+      title: "업무를 멈추지 않는 자동화",
+      desc: "슬랙, 웹훅, 구글시트, DB를 한 번에 연동",
+      btnMain: "새 워크플로우",
+      btnSub: "템플릿 보기",
+      visHtml: `
+        <div class="m-flow-box">
+          <div class="m-flow-row">
+            <span class="m-flow-node" style="border-color:#10B981; color:#10B981">주문 트리거</span>
+            <span class="m-flow-arr">➔</span>
+            <span class="m-flow-node">필터</span>
+            <span class="m-flow-arr">➔</span>
+            <span class="m-flow-node" style="border-color:#10B981; color:#10B981">Slack</span>
+          </div>
+          <div class="m-flow-stat"><span class="m-flow-pulse"></span> 99.98% 정상 가동 중</div>
+        </div>
+      `,
+      feet: ["200+ 앱 연동", "0초 지연 웹훅", "조건 분기 엔진"]
+    },
+    mobile: {
+      tag: "실시간 모니터링",
+      title: "파이프라인<br/>정상 가동 중",
+      cardHtml: `
+        <div class="mob-card__row">
+          <span>실행 성공률</span>
+          <span class="mob-badge mob-badge--live">99.98%</span>
+        </div>
+        <div class="mob-card__dim">오늘 처리 1,248건</div>
+        <div class="mob-card__price" style="color:#10B981; font-size:7.5px;">✔ Slack 알림 발송</div>
+      `,
+      btn: "실행 로그 보기"
+    }
   },
   {
-    n: "03", name: "세일정밀산업", domain: "seil-precision.vercel.app",
-    category: "site", catBadge: "[ COMPANY · 제조기업 웹사이트 ]",
-    status: "work", statusLabel: "제작 사례",
+    n: "03",
+    name: "세일정밀산업",
+    domain: "seil-precision.vercel.app",
+    category: "site",
+    catBadge: "[ COMPANY · 제조기업 웹사이트 ]",
+    status: "work",
+    statusLabel: "제작 사례",
     tagline: "제조 현장을 그대로 담은 홈페이지.",
     desc: "경주 금형·시제품·정밀가공 업체를 위해 만든 웹사이트 샘플입니다. 히어로부터 설비·작업·도면 문의까지, 공장의 리듬으로 이어집니다.",
     tags: ["홈페이지 제작", "제조업 브랜딩", "반응형 웹"],
-    art: "site",
     accent: "#FF7A00",
+    desktop: {
+      url: "seil-precision.vercel.app",
+      nav: ["회사소개", "설비현황", "가공사례"],
+      cta: "도면문의",
+      kicker: "SEIL PRECISION · GYEONGJU",
+      title: "도면이 정밀 금형이 됩니다",
+      desc: "독일 하이덴하인·HERMLE 5축 설비 기반 맞춤 가공",
+      btnMain: "온라인 도면 접수",
+      btnSub: "설비 스펙 보기",
+      visHtml: `
+        <div class="m-cnc-box">
+          <span class="m-cnc-badge">HERMLE C42U 5축</span>
+          <div class="m-cnc-name">공차 ±0.005mm 정밀도</div>
+          <div class="m-cnc-desc">독일 하이덴하인 CNC 기반<br/>납기준수율 99.4% 달성</div>
+        </div>
+      `,
+      feet: ["5축 동시 가공", "항공/반도체 지그", "3차원 정밀 측정"]
+    },
+    mobile: {
+      tag: "24H 도면 접수",
+      title: "경주 5축 가공<br/>빠른 견적 상담",
+      cardHtml: `
+        <div class="mob-card__row">
+          <span>CAD 도면 접수</span>
+          <span class="mob-badge" style="color:#FF7A00; border-color:rgba(255,122,0,0.3)">당일 회신</span>
+        </div>
+        <div class="mob-card__dim">5축 정밀가공 · 시제품</div>
+        <div class="mob-card__price" style="color:#FF7A00; font-size:7.5px;">054-000-0000</div>
+      `,
+      btn: "📞 상담 전화 연결"
+    }
   },
   {
-    n: "04", name: "Notedeck", domain: null,
-    category: "saas", catBadge: "[ B2B SAAS · 의사결정 ]",
-    status: "soon", statusLabel: "준비 중",
+    n: "04",
+    name: "Notedeck",
+    domain: null,
+    category: "saas",
+    catBadge: "[ B2B SAAS · 의사결정 ]",
+    status: "soon",
+    statusLabel: "준비 중",
     tagline: "회의록보다 결정 기록.",
     desc: "회의에서 나온 결정과 다음 액션을 기록하는 도구를 준비합니다. 결정의 맥락을 놓치지 않는 흐름을 목표로 합니다.",
     tags: ["회의록", "의사결정", "업무 문서"],
-    art: "doc",
     accent: "#F43F5E",
-  },
+    desktop: {
+      url: "notedeck.app / upcoming",
+      nav: ["기능소개", "회의템플릿", "팀플랜"],
+      cta: "무료 체험",
+      kicker: "DECISION & ACTION",
+      title: "회의록 대신 결정만 남깁니다",
+      desc: "결정의 맥락과 담당자, 다음 마감일을 추적",
+      btnMain: "결정록 시작",
+      btnSub: "팀 초대",
+      visHtml: `
+        <div class="m-note-box">
+          <span class="m-note-tag">결정 확정 · 05/18</span>
+          <div class="m-note-title">Q2 제품 출시 확정</div>
+          <div class="m-note-todo"><span class="m-note-chk m-note-chk--on">✔</span> 도메인 DNS 전환</div>
+          <div class="m-note-todo"><span class="m-note-chk"></span> 가격표 공지</div>
+        </div>
+      `,
+      feet: ["의사결정 아카이빙", "자동 담당자 멘션", "주간 액션 리포트"]
+    },
+    mobile: {
+      tag: "오늘의 액션",
+      title: "나에게 할당된<br/>결정 과제 (3)",
+      cardHtml: `
+        <div class="mob-card__row">
+          <span>실행 현황</span>
+          <span class="mob-badge" style="color:#F43F5E; border-color:rgba(244,63,94,0.3)">2/3 완료</span>
+        </div>
+        <div class="mob-card__dim">✔ DNS 전환 완료</div>
+        <div class="mob-card__price" style="color:#F43F5E; font-size:7.5px;">◻ 베타 테스터 발송</div>
+      `,
+      btn: "과제 체크하기"
+    }
+  }
 ];
 
-function projectArt(kind, accent) {
-  if (kind === "inbox") {
-    return `<div class="pa pa--inbox">
-      ${[1,2,3,4].map((i) => `
-        <div class="pa__row ${i===2?'pa__row--on':''}">
-          <span class="pa__av" style="background:${i===2?accent:'color-mix(in oklab,'+accent+' 25%, transparent)'}"></span>
-          <span class="pa__l1"></span>
-          <span class="pa__l2"></span>
-          <span class="pa__time">0${9+i}:${10+i*7}</span>
-        </div>
-      `).join("")}
-    </div>`;
-  }
-  if (kind === "flow") {
-    return `<div class="pa pa--flow">
-      <div class="pa__node">트리거</div>
-      <div class="pa__arr"></div>
-      <div class="pa__node pa__node--on" style="background:color-mix(in oklab, ${accent} 18%, transparent); color:${accent}">규칙</div>
-      <div class="pa__arr"></div>
-      <div class="pa__node">액션</div>
-      <div class="pa__arr"></div>
-      <div class="pa__node pa__node--on" style="background:color-mix(in oklab, ${accent} 18%, transparent); color:${accent}">알림</div>
-    </div>`;
-  }
-  if (kind === "chart") {
-    return `<div class="pa pa--chart">
-      <div class="pa__bars">
-        ${Array.from({length: 16}, (_, i) => {
-          const h = 22 + Math.round(38 * Math.sin(i * 0.6) + 30 + (i % 4) * 5);
-          return `<span class="pa__bar" style="height:${Math.min(96, h)}%; background: linear-gradient(180deg, ${accent}, color-mix(in oklab, ${accent} 50%, transparent))"></span>`;
-        }).join("")}
-      </div>
-      <div class="pa__axis"></div>
-    </div>`;
-  }
-  if (kind === "doc") {
-    return `<div class="pa pa--doc">
-      <div class="pa__doc-tag mono" style="color:${accent}">결정 · 05/18</div>
-      <div class="pa__doc-h">Q2 출시 범위 확정</div>
-      <div class="pa__doc-line"></div>
-      <div class="pa__doc-line w60"></div>
-      <div class="pa__doc-tag mono" style="color:${accent}; margin-top: 10px;">다음 액션 (3)</div>
-      <div class="pa__doc-todo"><span class="pa__chk" style="background:${accent}"></span> 도메인 전환</div>
-      <div class="pa__doc-todo"><span class="pa__chk"></span> 가격표 작성</div>
-      <div class="pa__doc-todo"><span class="pa__chk"></span> 베타 안내 메일</div>
-    </div>`;
-  }
-  if (kind === "site") {
-    return `<div class="pa pa--site">
-      <div class="pa__browser">
-        <div class="pa__bbar">
-          <span class="pa__bdot"></span><span class="pa__bdot"></span><span class="pa__bdot"></span>
-          <span class="mono pa__burl">seil-precision.vercel.app</span>
-        </div>
-        <div class="pa__site">
-          <div class="pa__site-hero">
-            <div class="pa__site-kicker mono">SEIL · GYEONGJU</div>
-            <div class="pa__site-h">도면이 금형이 됩니다.</div>
-            <span class="pa__site-cta" style="background:${accent}">도면 문의</span>
+function dualMockup(p) {
+  const d = p.desktop;
+  const m = p.mobile;
+  return `
+    <div class="dual-mockup">
+      <!-- PC Desktop Mockup (Left / Base) -->
+      <div class="mockup-desktop">
+        <div class="mockup-desktop__bar">
+          <div class="mockup-dots">
+            <span class="mockup-dot mockup-dot--r"></span>
+            <span class="mockup-dot mockup-dot--y"></span>
+            <span class="mockup-dot mockup-dot--g"></span>
           </div>
-          <div class="pa__site-side">
-            <div class="pa__site-stat"><span class="mono">2018</span>설립</div>
-            <div class="pa__site-stat"><span class="mono">HERMLE</span>5축</div>
-            <div class="pa__site-stat"><span class="mono">ISO</span>벤처</div>
+          <div class="mockup-desktop__url">${d.url}</div>
+        </div>
+        <div class="mockup-desktop__screen">
+          <div class="m-nav">
+            <div class="m-nav__logo">
+              <span class="m-nav__dot" style="background:${p.accent}"></span>
+              <span>${p.name}</span>
+            </div>
+            <div class="m-nav__links">
+              ${d.nav.map(n => `<span>${n}</span>`).join("")}
+            </div>
+            <span class="m-nav__cta" style="background:${p.accent}">${d.cta}</span>
+          </div>
+          <div class="m-hero">
+            <div class="m-hero__copy">
+              <span class="m-hero__kicker" style="color:${p.accent}">${d.kicker}</span>
+              <h4 class="m-hero__h">${d.title}</h4>
+              <p class="m-hero__p">${d.desc}</p>
+              <div class="m-hero__btns">
+                <span class="m-hero__btn-main" style="background:${p.accent}">${d.btnMain}</span>
+                <span class="m-hero__btn-sub">${d.btnSub}</span>
+              </div>
+            </div>
+            <div class="m-hero__vis">
+              ${d.visHtml}
+            </div>
+          </div>
+          <div class="m-feet">
+            ${d.feet.map(f => `<div class="m-feet__item">${f}</div>`).join("")}
           </div>
         </div>
       </div>
-    </div>`;
-  }
-  if (kind === "quote") {
-    return `<div class="pa pa--doc" style="gap:6px;">
-      <div class="pa__doc-tag mono" style="color:${accent}">UPLOAD · part_v2.stl</div>
-      <div style="display:flex;align-items:center;gap:10px;margin:2px 0 6px;">
-        <span style="width:34px;height:34px;border:1.5px solid ${accent};border-radius:4px;position:relative;flex:0 0 auto;">
-          <span style="position:absolute;top:6px;left:6px;width:18px;height:18px;border:1.5px solid ${accent};border-radius:2px;transform:rotate(35deg);transform-origin:center;opacity:0.8;"></span>
-        </span>
-        <div style="font-size:12px;color:#666;line-height:1.4;">
-          분석 완료 · 32.4&nbsp;cm³<br/>
-          <span class="mono" style="font-size:11px;opacity:0.6;">CNC · 알루미늄 6061</span>
+
+      <!-- Smartphone Mockup (Overlapping right) -->
+      <div class="mockup-mobile">
+        <div class="mockup-mobile__notch"></div>
+        <div class="mockup-mobile__screen">
+          <div class="mob-nav">
+            <span class="mob-nav__logo" style="color:${p.accent}">${p.name}</span>
+            <span class="mob-nav__burger">☰</span>
+          </div>
+          <div class="mob-body">
+            <span class="mob-tag" style="color:${p.accent}">${m.tag}</span>
+            <h5 class="mob-title">${m.title}</h5>
+            <div class="mob-card">
+              ${m.cardHtml}
+            </div>
+            <span class="mob-btn" style="background:${p.accent}">${m.btn}</span>
+          </div>
+          <div class="mob-home-bar"></div>
         </div>
+        <div class="mockup-mobile__bar"></div>
       </div>
-      <div class="pa__doc-line" style="margin:2px 0;"></div>
-      <div style="display:flex;justify-content:space-between;font-size:12px;color:#666;"><span>재료비</span><span class="mono">₩ 12,400</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:12px;color:#666;"><span>가공비</span><span class="mono">₩ 18,200</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:12px;color:#666;"><span>난이도</span><span class="mono">₩  3,800</span></div>
-      <div class="pa__doc-line" style="margin:2px 0;background:rgba(0,0,0,0.1);"></div>
-      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:${accent};margin-top:2px;"><span>견적 합계</span><span class="mono">₩ 34,400</span></div>
-    </div>`;
-  }
-  return "";
+    </div>
+  `;
 }
 
 document.getElementById("projects-slot").innerHTML = `
@@ -385,15 +514,7 @@ document.getElementById("projects-slot").innerHTML = `
       ${PROJECTS.map(p => `
         <article class="wize-card" data-category="${p.category}" style="--proj-accent:${p.accent}">
           <div class="wize-card__preview">
-            <div class="wize-card__bar">
-              <span class="wize-card__dot wize-card__dot--r"></span>
-              <span class="wize-card__dot wize-card__dot--y"></span>
-              <span class="wize-card__dot wize-card__dot--g"></span>
-              <span class="wize-card__url">${p.domain || "jiumlabs.com / upcoming"}</span>
-            </div>
-            <div class="wize-card__stage">
-              ${projectArt(p.art, p.accent)}
-            </div>
+            ${dualMockup(p)}
             <a class="wize-card__overlay" ${p.domain ? `href="https://${p.domain}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} 사이트 방문"` : `href="#cta"`}>
               <span class="wize-card__click blink">Click</span>
               <span class="wize-card__action-text">${p.domain ? "웹사이트 바로가기 ↗" : "제작 문의하기 ↗"}</span>
