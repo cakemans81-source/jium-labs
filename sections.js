@@ -3,6 +3,50 @@ window.JIUM = window.JIUM || {};
 
 /* ---------- HERO ---------- */
 const HERO = {
+  workflow: () => `
+    <section class="hero hero--workflow section--flush">
+      <div class="container hero__grid--workflow">
+        <div class="hero__copy">
+          <span class="eyebrow">JIUM LABS · 2026</span>
+          <h1>반복 업무는 줄이고,<br/><em>하나의 연결된</em><br/>워크플로우로.</h1>
+          <p class="hero__lead">JIUM LABS는 소규모 팀의 일상 업무를 자동화하는 <strong>실용적인 B2B SaaS</strong>와 비즈니스 가치를 전달하는 <strong>고품질 웹사이트</strong>를 설계합니다.</p>
+          <div class="hero__cta">
+            <a class="btn btn--accent btn--lg" href="#projects">포트폴리오 둘러보기 <span aria-hidden="true">↓</span></a>
+            <a class="btn btn--outline btn--lg" href="#cta">협업 및 제작 문의</a>
+            <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+              영상으로 보기
+            </a>
+          </div>
+          <ul class="hero__meta">
+            <li><span class="mono">경기 화성 · 2026</span></li>
+            <li><span class="mono">B2B SaaS & 맞춤형 웹</span></li>
+            <li><span class="mono">100% 독립 도메인 운영</span></li>
+          </ul>
+        </div>
+        <div class="hero__stage-wrap">
+          <div class="workflow-stage">
+            <div class="workflow-hud workflow-hud--top">
+              <span class="workflow-hud__dot workflow-hud__dot--live"></span>
+              <span class="workflow-hud__text">연결된 자동화 파이프라인</span>
+              <span class="workflow-hud__badge">LIVE</span>
+            </div>
+            <div class="workflow-stage__inner">
+              <video class="workflow-video" autoplay loop muted playsinline poster="assets/hero-workflow-poster.jpg">
+                <source src="assets/hero-workflow.mp4" type="video/mp4" />
+              </video>
+              <div class="workflow-stage__overlay" aria-hidden="true"></div>
+            </div>
+            <div class="workflow-hud workflow-hud--bottom">
+              <span class="workflow-hud__dot"></span>
+              <span class="workflow-hud__text">수작업 85% 자동화 절감</span>
+              <span class="workflow-hud__badge">STUDIO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
   default: () => `
     <section class="hero hero--default section--flush">
       <div class="container hero__grid">
@@ -147,10 +191,10 @@ function heroEditorArt() {
 JIUM.renderHero = function (variant) {
   const root = document.getElementById("hero-slot");
   if (!root) return;
-  root.innerHTML = (HERO[variant] || HERO.default)();
+  root.innerHTML = (HERO[variant] || HERO.workflow || HERO.default)();
 };
 
-JIUM.renderHero(document.body.dataset.hero || "default");
+JIUM.renderHero(document.body.dataset.hero || "workflow");
 
 /* ---------- STRIP (운영 중인 프로젝트 한줄 요약) ---------- */
 document.getElementById("strip-slot").innerHTML = `
@@ -182,39 +226,43 @@ document.getElementById("strip-slot").innerHTML = `
 const PROJECTS = [
   {
     n: "01", name: "PartStream", domain: "partstream-pi.vercel.app",
+    category: "saas", catBadge: "[ B2B SAAS · 3D 견적 ]",
     status: "live", statusLabel: "운영 중",
     tagline: "3D 파일을 올리면 견적이 바로 나옵니다.",
     desc: "STL·STEP 파일을 자동 분석해 부피·면적·가공 난이도를 추출하고, 재료비·가공비·셋업비까지 투명하게 산출합니다. 거래명세서 PDF와 월정산 자동화로 견적부터 정산까지 한 흐름.",
-    tags: ["제조 견적", "3D 자동 분석", "B2B"],
+    tags: ["제조 견적", "3D 자동 분석", "B2B SaaS"],
     art: "quote",
-    accent: "oklch(0.55 0.15 260)",
+    accent: "#818CF8",
   },
   {
     n: "02", name: "Loomi", domain: "loomi.jium.io",
+    category: "saas", catBadge: "[ AUTOMATION · 워크플로우 ]",
     status: "beta", statusLabel: "베타",
     tagline: "노코드 워크플로우 자동화.",
     desc: "트리거·규칙·액션 세 가지 블록으로 반복 업무를 자동화합니다. 슬랙·이메일·웹훅으로 결과를 흘려보냅니다.",
     tags: ["자동화", "워크플로우", "노코드"],
     art: "flow",
-    accent: "oklch(0.58 0.13 158)",
+    accent: "#10B981",
   },
   {
     n: "03", name: "세일정밀산업", domain: "seil-precision.vercel.app",
+    category: "site", catBadge: "[ COMPANY · 제조기업 웹사이트 ]",
     status: "work", statusLabel: "제작 사례",
     tagline: "제조 현장을 그대로 담은 홈페이지.",
     desc: "경주 금형·시제품·정밀가공 업체를 위해 만든 웹사이트 샘플입니다. 히어로부터 설비·작업·도면 문의까지, 공장의 리듬으로 이어집니다.",
-    tags: ["홈페이지 제작", "제조", "외주"],
+    tags: ["홈페이지 제작", "제조업 브랜딩", "반응형 웹"],
     art: "site",
-    accent: "oklch(0.68 0.16 135)",
+    accent: "#FF7A00",
   },
   {
     n: "04", name: "Notedeck", domain: null,
+    category: "saas", catBadge: "[ B2B SAAS · 의사결정 ]",
     status: "soon", statusLabel: "준비 중",
     tagline: "회의록보다 결정 기록.",
     desc: "회의에서 나온 결정과 다음 액션을 기록하는 도구를 준비합니다. 결정의 맥락을 놓치지 않는 흐름을 목표로 합니다.",
-    tags: ["회의록", "의사결정", "문서"],
+    tags: ["회의록", "의사결정", "업무 문서"],
     art: "doc",
-    accent: "oklch(0.62 0.16 18)",
+    accent: "#F43F5E",
   },
 ];
 
@@ -314,33 +362,66 @@ document.getElementById("projects-slot").innerHTML = `
 <section class="section" id="projects">
   <div class="container">
     <div class="section__head">
-      <span class="eyebrow">프로젝트</span>
-      <h2>제품과 홈페이지,<br/>현재 상태를 한눈에.</h2>
-      <p>자체 SaaS와 현장 업체 홈페이지 작업을 소개합니다. 공개된 작업은 링크로, 아직 공개되지 않은 작업은 준비 상태로 표시합니다.</p>
+      <span class="eyebrow">PORTFOLIO</span>
+      <h2>지음랩스 크리에이티브 & 솔루션</h2>
+      <p>와이즈디자인처럼 명확하고 직관적인 쇼케이스. 자체 개발 SaaS 도구와 현장 가치를 높이는 맞춤형 홈페이지 제작 사례를 둘러보세요.</p>
     </div>
-    <div class="projects">
+
+    <div class="port-head">
+      <div class="port-tabs" role="tablist" aria-label="포트폴리오 분류">
+        <button class="port-tab port-tab--active" data-filter="all" type="button" role="tab" aria-selected="true">
+          전체보기 <span class="port-tab__badge">4</span>
+        </button>
+        <button class="port-tab" data-filter="saas" type="button" role="tab" aria-selected="false">
+          SaaS 솔루션 <span class="port-tab__badge">3</span>
+        </button>
+        <button class="port-tab" data-filter="site" type="button" role="tab" aria-selected="false">
+          홈페이지 제작사례 <span class="port-tab__badge">1</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="wize-grid" id="portfolio-grid">
       ${PROJECTS.map(p => `
-        <article class="proj proj--${p.status}">
-          <div class="proj__main">
-            <div class="proj__head">
-              <span class="mono proj__num">${p.n} / Project</span>
+        <article class="wize-card" data-category="${p.category}" style="--proj-accent:${p.accent}">
+          <div class="wize-card__preview">
+            <div class="wize-card__bar">
+              <span class="wize-card__dot wize-card__dot--r"></span>
+              <span class="wize-card__dot wize-card__dot--y"></span>
+              <span class="wize-card__dot wize-card__dot--g"></span>
+              <span class="wize-card__url">${p.domain || "jiumlabs.com / upcoming"}</span>
+            </div>
+            <div class="wize-card__stage">
+              ${projectArt(p.art, p.accent)}
+            </div>
+            <a class="wize-card__overlay" ${p.domain ? `href="https://${p.domain}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} 사이트 방문"` : `href="#cta"`}>
+              <span class="wize-card__click blink">Click</span>
+              <span class="wize-card__action-text">${p.domain ? "웹사이트 바로가기 ↗" : "제작 문의하기 ↗"}</span>
+            </a>
+          </div>
+          <div class="wize-card__body">
+            <div class="wize-card__meta-row">
+              <span class="wize-card__cat mono">${p.catBadge}</span>
               <span class="proj__status proj__status--${p.status}">
                 <span class="proj__pulse"></span>${p.statusLabel}
               </span>
             </div>
-            <h3 class="proj__name" style="--proj-accent:${p.accent}">${p.name}</h3>
-            <p class="proj__tagline">${p.tagline}</p>
-            <p class="proj__desc">${p.desc}</p>
-            <div class="proj__tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
-            <div class="proj__foot">
-              ${p.domain ? `<a class="proj__link" href="https://${p.domain}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} 사이트 새 창에서 열기">
-                <span class="proj__domain mono">${p.domain}</span>
-                <span class="proj__arrow" aria-hidden="true">↗</span>
-              </a>` : `<span class="proj__pending">사이트 준비 중</span>`}
+            <h3 class="wize-card__name">${p.name}</h3>
+            <p class="wize-card__tagline">${p.tagline}</p>
+            <p class="wize-card__desc">${p.desc}</p>
+            <div class="wize-card__tags">
+              ${p.tags.map(t => `<span>${t}</span>`).join("")}
             </div>
-          </div>
-          <div class="proj__art" aria-hidden="true" style="--proj-accent:${p.accent}">
-            ${projectArt(p.art, p.accent)}
+            <div class="wize-card__foot">
+              ${p.domain ? `
+                <a class="wize-card__domain" href="https://${p.domain}" target="_blank" rel="noopener noreferrer" aria-label="${p.name} 사이트 새 창에서 열기">
+                  <span>${p.domain}</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ` : `
+                <span class="mono" style="font-size:12px; color:var(--fg-subtle);">사이트 준비 중</span>
+              `}
+            </div>
           </div>
         </article>
       `).join("")}
@@ -348,3 +429,20 @@ document.getElementById("projects-slot").innerHTML = `
   </div>
 </section>
 `;
+
+/* Portfolio Tab Filter Interaction */
+document.querySelectorAll(".port-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".port-tab").forEach(t => {
+      t.classList.remove("port-tab--active");
+      t.setAttribute("aria-selected", "false");
+    });
+    tab.classList.add("port-tab--active");
+    tab.setAttribute("aria-selected", "true");
+    const filter = tab.getAttribute("data-filter");
+    document.querySelectorAll(".wize-card").forEach(card => {
+      const match = filter === "all" || card.getAttribute("data-category") === filter;
+      card.style.display = match ? "flex" : "none";
+    });
+  });
+});

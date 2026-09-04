@@ -1,9 +1,9 @@
 /* JIUM LABS — Tweaks panel (vanilla) */
 (function () {
   const DEFAULTS = /*EDITMODE-BEGIN*/{
-    "theme": "light",
-    "accent": "indigo",
-    "hero": "default"
+    "theme": "dark",
+    "accent": "amber",
+    "hero": "workflow"
   }/*EDITMODE-END*/;
 
   let state = { ...DEFAULTS };
@@ -79,9 +79,10 @@
       { label: "Ink",     value: "ink",     swatch: "var(--fg)" },
     ]));
     panel.appendChild(field("Hero 베리언트", "hero", [
-      { label: "Grid",    value: "default" },
-      { label: "Marquee", value: "marquee" },
-      { label: "Editor",  value: "editor"  },
+      { label: "3D Workflow", value: "workflow" },
+      { label: "Grid",        value: "default" },
+      { label: "Marquee",     value: "marquee" },
+      { label: "Editor",      value: "editor"  },
     ]));
     panel.querySelector(".tw__close").addEventListener("click", () => {
       hide(); window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*");
