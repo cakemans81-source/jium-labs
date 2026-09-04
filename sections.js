@@ -93,7 +93,7 @@ const HERO = {
       </div>
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          ${["PartStream / 3D CAD 견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 3D 뷰어", "(주)황토식품 / 식품유통 웹사이트", "OrderFlow / 발주 자동화", "(주)한빛테크 / 스마트팩토리", "— JIUM LABS 2026"].concat(["PartStream / 3D CAD 견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 3D 뷰어", "(주)황토식품 / 식품유통 웹사이트", "OrderFlow / 발주 자동화", "(주)한빛테크 / 스마트팩토리", "— JIUM LABS 2026"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
+          ${["PartStream / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)한빛테크 / 스마트팩토리", "— JIUM LABS 2026"].concat(["PartStream / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)한빛테크 / 스마트팩토리", "— JIUM LABS 2026"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
         </div>
       </div>
     </section>
@@ -244,46 +244,45 @@ const PROJECTS_SAAS = [
     catBadge: "[ B2B SAAS · 3D 견적 ]",
     status: "live",
     statusLabel: "운영 중",
-    tagline: "3D 도면 파일 업로드 즉시 자동 견적 산출",
+    tagline: "3D 도면 파일 업로드 즉시 자동 견적 계산 (견적온)",
     desc: "STL·STEP 파일을 자동 분석해 부피·면적·가공 난이도를 추출하고, 재료비·가공비·셋업비까지 투명하게 산출합니다. 거래명세서 PDF와 월정산 자동화로 견적부터 정산까지 한 흐름.",
     accent: "#818CF8",
     desktop: {
       url: "partstream-pi.vercel.app",
-      nav: ["솔루션", "견적체험", "고객사례"],
-      cta: "견적 시작",
-      kicker: "3D CAD AUTO-QUOTE",
-      title: "도면 올리면 견적 산출",
-      desc: "STL·STEP 1초 체적 및 가공비 계산",
-      btnMain: "3D 파일 업로드",
+      nav: ["견적체험", "기능소개", "요금안내"],
+      cta: "무료 체험",
+      kicker: "3D CAD AUTO-QUOTE · 견적온",
+      title: "3D 파일만 올리면 견적이 바로 계산됩니다",
+      desc: "STL·STEP 분석 후 재료비·가공비·셋업비 즉시 산출",
+      btnMain: "무료 견적 시작",
       btnSub: "견적서 샘플",
       visHtml: `
-        <div class="m-cad-box">
-          <div class="m-cad-svg-wrap">
-            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
-              <path d="M24 4L42 14.5V33.5L24 44L6 33.5V14.5L24 4Z" stroke="#818CF8" stroke-width="1.8" fill="rgba(129, 140, 248, 0.08)"/>
-              <path d="M24 4V44M24 24L42 14.5M24 24L6 14.5" stroke="#818CF8" stroke-width="1.4" stroke-dasharray="2 2"/>
-              <circle cx="24" cy="24" r="2.5" fill="#818CF8"/>
-            </svg>
+        <div class="m-quoteon-box">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="m-qo-badge">bracket.step 분석</span>
+            <span style="font-size:7px; color:#A5B4FC;">STL · STEP</span>
           </div>
-          <div class="m-cad-info">
-            <span class="mono m-cad-fn">part_v2.stl</span>
-            <span class="mono m-cad-dim">32.4 cm³ · Al6061</span>
-            <span class="m-cad-price">₩ 34,400</span>
+          <div class="m-qo-stats">
+            <div class="m-qo-stat-item">부피 <strong>72.0 ㎤</strong></div>
+            <div class="m-qo-stat-item">표면적 <strong>418 ㎠</strong></div>
+            <div class="m-qo-stat-item">크기 <strong>120×80×24</strong></div>
+            <div class="m-qo-stat-item">재질 <strong>Al6061</strong></div>
           </div>
+          <div class="m-qo-price">예상 견적 ₩ 75,600</div>
         </div>
       `,
-      feet: ["STL/STEP 분석", "실시간 단가", "명세서 자동"]
+      feet: ["STEP 분석 완료", "재료·가공·셋업비", "거래명세서 PDF"]
     },
     mobile: {
-      tag: "3D 견적",
-      title: "도면 업로드 즉시<br/>견적 확인",
+      tag: "견적온 3D 분석",
+      title: "도면 업로드 즉시<br/>견적 계산 완료",
       cardHtml: `
         <div class="mob-card__row">
-          <span>part_v2.stl</span>
+          <span>bracket.step</span>
           <span class="mob-badge">분석 완료</span>
         </div>
-        <div class="mob-card__dim">32.4 cm³ · 5축 가공</div>
-        <div class="mob-card__price" style="color:#818CF8">₩ 34,400</div>
+        <div class="mob-card__dim">부피 72.0㎤ · Al6061</div>
+        <div class="mob-card__price" style="color:#818CF8">₩ 75,600</div>
       `,
       btn: "견적서 다운로드"
     }
@@ -400,84 +399,87 @@ const PROJECTS_SITE = [
     catBadge: "[ COMPANY · 정밀제조 ]",
     status: "work",
     statusLabel: "제작 사례",
-    tagline: "제조 현장의 리듬과 신뢰를 담은 5축 정밀가공 웹사이트",
-    desc: "경주 금형·시제품·정밀가공 업체를 위해 만든 웹사이트. 독일 하이덴하인·HERMLE 5축 설비부터 도면 문의까지 원스톱으로 이어집니다.",
+    tagline: "까다로운 형상일수록 기술이 빛나는 5축 정밀가공 웹사이트",
+    desc: "경주 금형·시제품·정밀가공 업체를 위해 만든 웹사이트. DN솔루션즈 5축 머시닝센터 DVF 5000 설비부터 온라인 도면 접수까지 원스톱으로 이어집니다.",
     accent: "#FF7A00",
     desktop: {
       url: "seil-precision.vercel.app",
-      nav: ["회사소개", "설비현황", "가공사례"],
-      cta: "도면 문의",
+      nav: ["소개", "설비", "제품", "시설"],
+      cta: "문의하기",
       kicker: "SEIL PRECISION · GYEONGJU",
-      title: "도면이 정밀 금형이 됩니다",
-      desc: "독일 하이덴하인·HERMLE 5축 설비 기반 맞춤 가공",
+      title: "까다로운 형상일수록 기술이 빛납니다",
+      desc: "DN솔루션즈 5축 머시닝센터 DVF 5000 기반 맞춤 가공",
       btnMain: "온라인 도면 접수",
       btnSub: "설비 스펙 보기",
       visHtml: `
         <div class="m-cnc-box">
-          <span class="m-cnc-badge">HERMLE C42U 5축</span>
-          <div class="m-cnc-name">공차 ±0.005mm 정밀도</div>
-          <div class="m-cnc-desc">독일 하이덴하인 CNC 기반<br/>납기준수율 99.4% 달성</div>
+          <span class="m-cnc-badge">DN SOLUTIONS DVF 5000</span>
+          <div class="m-cnc-name">스트로크 625×450×400mm</div>
+          <div class="m-cnc-desc">12,000 RPM · 5축 복합 정밀가공<br/>ISO 9001 · 14001 · 벤처기업 인증</div>
         </div>
       `,
-      feet: ["5축 동시 가공", "항공/반도체 지그", "3차원 정밀 측정"]
+      feet: ["DVF 5000 5축", "금형·시제품 가공", "3차원 정밀 측정"]
     },
     mobile: {
-      tag: "24H 도면 접수",
+      tag: "도면 접수",
       title: "경주 5축 가공<br/>빠른 견적 상담",
       cardHtml: `
         <div class="mob-card__row">
-          <span>CAD 도면 접수</span>
+          <span>DVF 5000 5축</span>
           <span class="mob-badge" style="color:#FF7A00; border-color:rgba(255,122,0,0.3)">당일 회신</span>
         </div>
         <div class="mob-card__dim">5축 정밀가공 · 시제품</div>
-        <div class="mob-card__price" style="color:#FF7A00; font-size:7.5px;">054-000-0000</div>
+        <div class="mob-card__price" style="color:#FF7A00; font-size:7.5px;">054-624-2335</div>
       `,
       btn: "📞 상담 전화 연결"
     }
   },
   {
     n: "02",
-    name: "(주)황토식품",
-    domain: null,
+    name: "와이즈디자인",
+    domain: "wise-design-cnc-bucheon.cakemans81.chatgpt.site",
     category: "site",
-    catBadge: "[ COMPANY · 식품유통 ]",
+    catBadge: "[ COMPANY · 시제품·CNC ]",
     status: "work",
     statusLabel: "제작 사례",
-    tagline: "56년 전통 건어물·견과류 제조유통 브랜드 공식 웹사이트",
-    desc: "황토마을 브랜드 소개부터 위생적인 건어물·견과류 제조 공정, 전국 유통망 안내까지 정갈하고 직관적인 비주얼로 구현했습니다.",
-    accent: "#EAB308",
+    tagline: "부천 플라스틱 수지 & 알루미늄 CNC 가공 및 시제품 제작",
+    desc: "ABS·POM·PC·MC 플라스틱과 알루미늄 정밀 CNC 가공. 3D 모델링부터 기구 설계, 졸업작품·스타트업 시제품 및 디자인 목업까지 제작합니다.",
+    accent: "#0284C7",
     desktop: {
-      url: "hwangto.co.kr",
-      nav: ["회사소개", "브랜드소개", "제품소개", "고객센터"],
-      cta: "제품 보기",
-      kicker: "NUTS & FISHERY 황토마을",
-      title: "Your Pocket Friend",
-      desc: "56년 전통 프리미엄 건어물 및 견과류 유통·제조",
-      btnMain: "브랜드 스토리",
-      btnSub: "사업분야 보기",
+      url: "wise-design-cnc-bucheon.cakemans81.chatgpt.site",
+      nav: ["업무범위", "시제품의뢰", "제작사례", "보유장비"],
+      cta: "이메일 견적",
+      kicker: "BUCHEON · PLASTIC / AL CNC",
+      title: "소재를, 정밀한 부품으로",
+      desc: "ABS·POM·PC·MC 수지 및 AL 비철소재 정밀 가공",
+      btnMain: "도면 견적 문의",
+      btnSub: "제작 사례 보기",
       visHtml: `
-        <div class="m-food-box">
-          <span class="m-food-badge">56년 역사와 함께하는 (주)황토식품</span>
-          <div class="m-food-grid">
-            <div class="m-food-col"><span>🚚 건어물 유통</span></div>
-            <div class="m-food-col"><span>🏭 견과 가공제조</span></div>
+        <div class="m-wd-box">
+          <div class="m-wd-head">
+            <span class="m-wd-badge">WISE DESIGN</span>
+            <span class="m-wd-equip">DNM 570/670 (4대)</span>
+          </div>
+          <div class="m-wd-lead">플라스틱·알루미늄 시제품 및 목업 제작</div>
+          <div class="m-wd-mats">
+            <span>ABS</span><span>POM</span><span>PC</span><span>MC</span><span>AL</span>
           </div>
         </div>
       `,
-      feet: ["HACCP 위생인증", "전국 온·오프라인 유통", "맞춤 선물세트"]
+      feet: ["DNM 570·670 4대", "CIMATRON 작업", "춘의테크노파크"]
     },
     mobile: {
-      tag: "황토마을",
-      title: "건어물·견과류<br/>대표 브랜드",
+      tag: "플라스틱·AL CNC",
+      title: "부천 시제품·목업<br/>정밀 가공 상담",
       cardHtml: `
         <div class="mob-card__row">
-          <span>브랜드</span>
-          <span class="mob-badge" style="color:#EAB308; border-color:rgba(234,179,8,0.3)">황토식품</span>
+          <span>보유 장비</span>
+          <span class="mob-badge" style="color:#0284C7; border-color:rgba(2,132,199,0.3)">DNM 570/670</span>
         </div>
-        <div class="mob-card__dim">건어물 유통의 선두주자</div>
-        <div class="mob-card__price" style="color:#EAB308; font-size:7.5px;">HACCP 클린 공정</div>
+        <div class="mob-card__dim">ABS·POM·PC·AL 정밀 가공</div>
+        <div class="mob-card__price" style="color:#0284C7; font-size:7.5px;">wise-design@naver.com</div>
       `,
-      btn: "제품 카탈로그"
+      btn: "도면 견적 문의"
     }
   },
   {
