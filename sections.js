@@ -32,8 +32,8 @@ const HERO = {
               <span class="workflow-hud__badge">LIVE</span>
             </div>
             <div class="workflow-stage__inner">
-              <video class="workflow-video" autoplay loop muted playsinline poster="assets/hero-workflow-poster.jpg">
-                <source src="assets/hero-workflow.mp4" type="video/mp4" />
+              <video class="workflow-video" autoplay loop muted playsinline poster="assets/hero-workflow-poster.jpg?v=20260904_02">
+                <source src="assets/hero-workflow.mp4?v=20260904_02" type="video/mp4" />
               </video>
               <div class="workflow-stage__overlay" aria-hidden="true"></div>
             </div>
@@ -192,6 +192,18 @@ JIUM.renderHero = function (variant) {
   const root = document.getElementById("hero-slot");
   if (!root) return;
   root.innerHTML = (HERO[variant] || HERO.workflow || HERO.default)();
+  const v = root.querySelector(".workflow-video");
+  if (v) {
+    v.muted = true;
+    v.defaultMuted = true;
+    v.playsInline = true;
+    v.setAttribute("muted", "");
+    v.setAttribute("playsinline", "");
+    const p = v.play();
+    if (p !== undefined) {
+      p.catch(() => {});
+    }
+  }
 };
 
 JIUM.renderHero(document.body.dataset.hero || "workflow");
