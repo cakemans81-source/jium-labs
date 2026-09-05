@@ -207,7 +207,11 @@ function heroEditorArt() {
 JIUM.renderHero = function (variant) {
   const root = document.getElementById("hero-slot");
   if (!root) return;
-  root.innerHTML = (HERO[variant] || HERO.workflow || HERO.default)();
+  const currentRendered = root.dataset.rendered;
+  if (currentRendered !== variant || !root.children.length) {
+    root.innerHTML = (HERO[variant] || HERO.workflow || HERO.default)();
+    root.dataset.rendered = variant;
+  }
   const v = root.querySelector(".workflow-video");
   if (v) {
     v.muted = true;
@@ -225,7 +229,9 @@ JIUM.renderHero = function (variant) {
 JIUM.renderHero(document.body.dataset.hero || "workflow");
 
 /* ---------- STRIP (운영 중인 프로젝트 한줄 요약) ---------- */
-document.getElementById("strip-slot").innerHTML = `
+const stripSlot = document.getElementById("strip-slot");
+if (stripSlot && !stripSlot.children.length) {
+stripSlot.innerHTML = `
 <section class="strip section--flush">
   <div class="container">
     <div class="strip__row">
@@ -249,6 +255,7 @@ document.getElementById("strip-slot").innerHTML = `
   </div>
 </section>
 `;
+}
 
 /* ---------- PROJECTS (카테고리별 포트폴리오 데이터) ---------- */
 const PROJECTS_SAAS = [
@@ -422,7 +429,9 @@ function renderCard(p) {
   `;
 }
 
-document.getElementById("projects-slot").innerHTML = `
+const projectsSlot = document.getElementById("projects-slot");
+if (projectsSlot && !projectsSlot.children.length) {
+projectsSlot.innerHTML = `
 <section class="section" id="projects">
   <div class="container">
     <div class="section__head">
@@ -461,3 +470,4 @@ document.getElementById("projects-slot").innerHTML = `
   </div>
 </section>
 `;
+}

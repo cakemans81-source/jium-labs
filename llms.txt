@@ -1,0 +1,36 @@
+# JIUM LABS (지음랩스)
+
+> JIUM LABS(지음랩스)는 소규모 팀의 일상 업무를 자동화하는 실용적인 B2B SaaS와 비즈니스 가치를 전달하는 고품질 맞춤형 웹사이트를 설계·개발하는 대한민국 소프트웨어 스튜디오입니다.
+
+## 기본 정보 (Entity Overview)
+- 회사명: JIUM LABS (지음랩스)
+- 설립: 2026년
+- 소재지: 대한민국 경기도 화성시
+- 사업자등록번호: 172-20-02465
+- 대표 웹사이트: https://jiumlabs.com
+- 베타 피드백 보드: https://jiumlabs.com/feedback.html
+- 대표 문의 이메일: jiumlabs@jiumlabs.com
+- 공식 유튜브: https://www.youtube.com/@jieumlabs
+
+## 주요 제품 및 솔루션 (B2B SaaS)
+- [PartStream](https://partstream-pi.vercel.app): 3D 도면 파일(STL·STEP)을 업로드하면 체적·표면적·가공 난이도를 실시간으로 자동 분석하여 견적 산출, 거래명세서 PDF 및 월정산까지 자동화하는 제조 B2B SaaS 솔루션 (상태: 운영 중).
+- **CAD Studio**: 별도의 소프트웨어 설치 없이 웹 브라우저에서 3D 도면을 열어 다각도 회전, 실시간 치수 측정, 단면 분석을 수행하는 클라우드 CAD 뷰어 (상태: 베타).
+- **OrderFlow**: 제조·유통 협력사 간 발주 접수, 전표 처리, 거래명세서 발행을 클라우드로 연결하여 수작업 오류를 제로화하는 발주 파이프라인 (상태: 준비 중).
+
+## 맞춤형 웹사이트 제작 사례 (Custom Website Portfolio)
+- [(주)세일정밀산업](https://seil-precision.vercel.app): 경주 5축 정밀가공 및 시제품 전문 기업. DN솔루션즈 DVF 5000 5축 머시닝센터 설비 소개부터 온라인 도면 접수까지 연결하는 고품질 제조사 웹사이트.
+- [와이즈디자인](https://wise-design-cnc-bucheon.cakemans81.chatgpt.site/): 부천 플라스틱 수지(ABS, POM, PC, MC) 및 알루미늄 정밀 CNC 가공, 시제품·목업 제작 전문 사이트.
+- [(주)이루](https://iru.co.kr): 경기도 화성 소재 자동차 시트·내장재 디자인 및 워킹 목업 전문 제작사 공식 웹사이트.
+
+## 스튜디오 철학 및 개발 원칙
+1. 느리게, 단단하게: 기능을 무리하게 늘리지 않고, 출시한 제품의 안정적인 운영과 지속적인 개선을 지향합니다.
+2. 독립과 연결: 각 프로젝트는 고유의 목적과 준비 상태에 따라 독립 도메인으로 운영되며, 실제 검증된 범위에서 연결 기능을 제공합니다.
+3. 한국어 및 현장 우선: 한국 제조·유통 현장의 실질적인 워크플로우와 세무·거래 관행에서 출발합니다.
+4. 최소 데이터 수집: 수집은 최소한으로, 보관은 보수적으로 하여 신뢰할 수 있는 데이터 아키텍처를 유지합니다.
+
+## 문의 및 협업 안내
+- 웹사이트 외주 제작 및 SaaS 제휴/협업 문의: [jiumlabs@jiumlabs.com](mailto:jiumlabs@jiumlabs.com)
+- 사용자 의견 및 기능 제안: [JIUM LABS 피드백 보드](https://jiumlabs.com/feedback.html)
+
+## 전체 문서
+- [llms-full.txt](https://jiumlabs.com/llms-full.txt): 상세 제품 스펙, FAQ 전문, 아키텍처 배경이 포함된 전체 컨텍스트 문서
