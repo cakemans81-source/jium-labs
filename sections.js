@@ -109,7 +109,7 @@ const HERO = {
       </div>
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          ${["PartStream / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)한빛테크 / 스마트팩토리", "— JIUM LABS 2026"].concat(["PartStream / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)한빛테크 / 스마트팩토리", "— JIUM LABS 2026"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
+          ${["PartStream / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)이루 / 자동차 시트 목업", "— JIUM LABS 2026"].concat(["PartStream / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)이루 / 자동차 시트 목업", "— JIUM LABS 2026"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
         </div>
       </div>
     </section>
@@ -352,21 +352,21 @@ const PROJECTS_SITE = [
   },
   {
     n: "03",
-    name: "(주)한빛테크",
-    domain: null,
+    name: "(주)이루",
+    domain: "iru.co.kr",
     category: "site",
-    catBadge: "[ COMPANY · 스마트팩토리 ]",
+    catBadge: "[ COMPANY · 자동차 시트 목업 ]",
     status: "work",
     statusLabel: "제작 사례",
-    tagline: "반도체 자동화 장비 및 스마트팩토리 솔루션 웹사이트",
-    desc: "클린룸 자동화 장비와 정밀 지그 설계 역량을 글로벌 고객사에 효과적으로 어필할 수 있는 엔지니어링 브랜딩 웹사이트.",
-    accent: "#3B82F6",
+    tagline: "경기도 화성 자동차 시트·내장재 목업 전문 제작 공식 웹사이트",
+    desc: "디자인 목업, 워킹 목업부터 하이엔드 CMF·패턴까지. 설계·정밀가공·후처리·조립을 아우르는 (주)이루의 기술력과 포트폴리오를 담았습니다.",
+    accent: "#38BDF8",
     desktop: {
-      url: "hanbit-tech.co.kr",
-      img: "assets/portfolio/hanbit-pc.png"
+      url: "iru.co.kr",
+      img: "assets/portfolio/iru-pc.png"
     },
     mobile: {
-      img: "assets/portfolio/hanbit-mob.png"
+      img: "assets/portfolio/iru-mob.png"
     }
   }
 ];
