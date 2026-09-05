@@ -428,7 +428,7 @@ document.getElementById("projects-slot").innerHTML = `
     <div class="section__head">
       <span class="eyebrow">PORTFOLIO</span>
       <h2>지음랩스 크리에이티브 & 솔루션</h2>
-      <p>와이즈디자인처럼 명확하고 직관적인 쇼케이스. 자체 개발 SaaS 솔루션과 기업의 가치를 높이는 맞춤형 웹사이트 제작 사례를 둘러보세요.</p>
+      <p>명확하고 직관적인 쇼케이스. 자체 개발 SaaS 솔루션과 기업의 가치를 높이는 맞춤형 웹사이트 제작 사례를 둘러보세요.</p>
     </div>
 
     <!-- Category 1: SaaS 솔루션 -->
