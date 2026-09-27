@@ -45,7 +45,7 @@
 <link rel="stylesheet" href="styles.css?v=20260905_02" />
 <link rel="stylesheet" href="components.css?v=20260905_02" />
 <link rel="stylesheet" href="portfolio.css?v=20260905_02" />
-<link rel="stylesheet" href="showreel.css?v=20260927_01" />
+<link rel="stylesheet" href="showreel.css?v=20260927_02" />
 
 <!-- Schema.org JSON-LD (SEO & GEO Knowledge Graph) -->
 <script type="application/ld+json">
@@ -359,10 +359,11 @@
                 <span class="workflow-hud__badge">LIVE</span>
               </div>
               <div class="workflow-stage__inner workflow-stage__inner--cinema">
-                <video class="workflow-video" autoplay loop muted playsinline poster="assets/hero-workflow-poster.jpg?v=20260904_04">
-                  <source src="assets/hero-workflow.mp4?v=20260904_04" type="video/mp4" />
-                </video>
-                <div class="workflow-stage__overlay" aria-hidden="true"></div>
+                <video class="workflow-video" data-reel-hero data-reel-open loop muted playsinline preload="none" poster="assets/showreel/showreel-poster.jpg?v=20260927_01" aria-hidden="true"></video>
+                <button type="button" class="hero-reel__play" data-reel-open aria-haspopup="dialog" aria-label="JIUM LABS 쇼릴 소리 켜고 전체 화면으로 보기 (46초)">
+                  <span class="hero-reel__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+                  <span class="hero-reel__t" aria-hidden="true"><b>소리 켜고 보기</b><span>SHOWREEL · 00:46</span></span>
+                </button>
               </div>
               <div class="workflow-hud workflow-hud--bottom">
                 <span class="workflow-hud__dot"></span>
@@ -375,45 +376,6 @@
         </div>
       </section>
     </div>
-
-    <!-- SHOWREEL (static — not re-rendered by sections.js) -->
-    <section class="section reel" id="showreel" aria-labelledby="reel-title">
-      <div class="container">
-        <div class="reel__head">
-          <div class="section__head">
-            <span class="eyebrow">SHOWREEL · 2026</span>
-            <h2 id="reel-title">46초로 보는 <em>JIUM LABS</em>.</h2>
-            <p>SaaS 솔루션부터 맞춤형 웹사이트 제작 사례까지, 지음랩스가 만든 것들을 한 편에 담았습니다.</p>
-          </div>
-          <button type="button" class="btn btn--primary btn--lg reel__cta" data-reel-open aria-haspopup="dialog">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
-            전체 화면으로 보기
-          </button>
-        </div>
-        <div class="reel__frame">
-          <div class="reel__bar" aria-hidden="true">
-            <span class="reel__bar-l"><span class="reel__rec"></span>JIUM LABS · SHOWREEL 2026</span>
-            <span class="reel__bar-r">1080P · 00:46</span>
-          </div>
-          <button type="button" class="reel__stage" data-reel-open aria-haspopup="dialog" aria-label="JIUM LABS 쇼릴 영상 재생 (46초, 소리 없음)">
-            <img class="reel__poster" src="assets/showreel/showreel-poster.jpg?v=20260927_01" alt="" width="1600" height="900" loading="lazy" decoding="async" />
-            <video class="reel__video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
-            <span class="reel__shade" aria-hidden="true"></span>
-            <span class="reel__play" aria-hidden="true">
-              <span class="reel__play-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span>
-              <span class="reel__play-t"><b>쇼릴 재생</b><span>PLAY REEL · 00:46</span></span>
-            </span>
-          </button>
-        </div>
-        <ol class="reel__chapters" aria-label="쇼릴 챕터">
-          <li><button type="button" data-reel-open data-reel-at="0"><span class="mono">00:00</span><b>인트로</b></button></li>
-          <li><button type="button" data-reel-open data-reel-at="8"><span class="mono">00:08</span><b>하나의 워크플로우</b></button></li>
-          <li><button type="button" data-reel-open data-reel-at="13.8"><span class="mono">00:13</span><b>SaaS 솔루션</b></button></li>
-          <li><button type="button" data-reel-open data-reel-at="28.2"><span class="mono">00:28</span><b>웹사이트 제작</b></button></li>
-          <li><button type="button" data-reel-open data-reel-at="38.5"><span class="mono">00:38</span><b>스튜디오 &amp; 문의</b></button></li>
-        </ol>
-      </div>
-    </section>
 
     <!-- STRIP -->
     <div id="strip-slot">
@@ -953,8 +915,8 @@
   </dialog>
 
   <script src="tweaks.js?v=20260905_02"></script>
-  <script src="sections.js?v=20260927_01"></script>
+  <script src="sections.js?v=20260927_02"></script>
   <script src="sections2.js?v=20260905_02"></script>
-  <script src="showreel.js?v=20260927_01"></script>
+  <script src="showreel.js?v=20260927_02"></script>
 </body>
 </html>

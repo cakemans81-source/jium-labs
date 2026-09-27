@@ -44,10 +44,11 @@ const HERO = {
               <span class="workflow-hud__badge">LIVE</span>
             </div>
             <div class="workflow-stage__inner workflow-stage__inner--cinema">
-              <video class="workflow-video" autoplay loop muted playsinline poster="assets/hero-workflow-poster.jpg?v=20260904_04">
-                <source src="assets/hero-workflow.mp4?v=20260904_04" type="video/mp4" />
-              </video>
-              <div class="workflow-stage__overlay" aria-hidden="true"></div>
+              <video class="workflow-video" data-reel-hero data-reel-open loop muted playsinline preload="none" poster="assets/showreel/showreel-poster.jpg?v=20260927_01" aria-hidden="true"></video>
+              <button type="button" class="hero-reel__play" data-reel-open aria-haspopup="dialog" aria-label="JIUM LABS 쇼릴 소리 켜고 전체 화면으로 보기 (46초)">
+                <span class="hero-reel__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+                <span class="hero-reel__t" aria-hidden="true"><b>소리 켜고 보기</b><span>SHOWREEL · 00:46</span></span>
+              </button>
             </div>
             <div class="workflow-hud workflow-hud--bottom">
               <span class="workflow-hud__dot"></span>
