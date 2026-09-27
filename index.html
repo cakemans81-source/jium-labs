@@ -45,6 +45,7 @@
 <link rel="stylesheet" href="styles.css?v=20260905_02" />
 <link rel="stylesheet" href="components.css?v=20260905_02" />
 <link rel="stylesheet" href="portfolio.css?v=20260905_02" />
+<link rel="stylesheet" href="showreel.css?v=20260927_01" />
 
 <!-- Schema.org JSON-LD (SEO & GEO Knowledge Graph) -->
 <script type="application/ld+json">
@@ -267,6 +268,18 @@
           }
         }
       ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://jiumlabs.com/#showreel",
+      "name": "JIUM LABS 쇼릴 2026",
+      "description": "3D CAD 자동견적 PartStream, CAD Studio, OrderFlow 등 B2B SaaS 솔루션과 세일정밀산업·와이즈디자인·(주)이루 맞춤형 웹사이트 제작 사례를 담은 JIUM LABS 쇼릴.",
+      "thumbnailUrl": "https://jiumlabs.com/assets/showreel/showreel-poster.jpg",
+      "contentUrl": "https://jiumlabs.com/assets/showreel/showreel-1080.mp4",
+      "uploadDate": "2026-09-27",
+      "duration": "PT46S",
+      "inLanguage": "ko",
+      "publisher": { "@id": "https://jiumlabs.com/#organization" }
     }
   ]
 }
@@ -315,10 +328,7 @@
             <div class="hero__cta hero__cta--cinema">
               <a class="btn btn--accent btn--lg" href="#projects">포트폴리오 둘러보기 <span aria-hidden="true">↓</span></a>
               <a class="btn btn--outline btn--lg" href="#cta">협업 및 제작 문의</a>
-              <a class="btn btn--youtube btn--lg" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
-                영상으로 보기
-              </a>
+              <button type="button" class="btn btn--reel btn--lg" data-reel-open aria-haspopup="dialog" aria-label="쇼릴 영상 재생 (46초)"><span class="btn__play" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span>영상으로 보기</button>
             </div>
             <ul class="hero__meta hero__meta--cinema">
               <li><span class="mono">경기 화성 · 2026</span></li>
@@ -365,6 +375,45 @@
         </div>
       </section>
     </div>
+
+    <!-- SHOWREEL (static — not re-rendered by sections.js) -->
+    <section class="section reel" id="showreel" aria-labelledby="reel-title">
+      <div class="container">
+        <div class="reel__head">
+          <div class="section__head">
+            <span class="eyebrow">SHOWREEL · 2026</span>
+            <h2 id="reel-title">46초로 보는 <em>JIUM LABS</em>.</h2>
+            <p>SaaS 솔루션부터 맞춤형 웹사이트 제작 사례까지, 지음랩스가 만든 것들을 한 편에 담았습니다.</p>
+          </div>
+          <button type="button" class="btn btn--primary btn--lg reel__cta" data-reel-open aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+            전체 화면으로 보기
+          </button>
+        </div>
+        <div class="reel__frame">
+          <div class="reel__bar" aria-hidden="true">
+            <span class="reel__bar-l"><span class="reel__rec"></span>JIUM LABS · SHOWREEL 2026</span>
+            <span class="reel__bar-r">1080P · 00:46</span>
+          </div>
+          <button type="button" class="reel__stage" data-reel-open aria-haspopup="dialog" aria-label="JIUM LABS 쇼릴 영상 재생 (46초, 소리 없음)">
+            <img class="reel__poster" src="assets/showreel/showreel-poster.jpg?v=20260927_01" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+            <video class="reel__video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <span class="reel__shade" aria-hidden="true"></span>
+            <span class="reel__play" aria-hidden="true">
+              <span class="reel__play-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+              <span class="reel__play-t"><b>쇼릴 재생</b><span>PLAY REEL · 00:46</span></span>
+            </span>
+          </button>
+        </div>
+        <ol class="reel__chapters" aria-label="쇼릴 챕터">
+          <li><button type="button" data-reel-open data-reel-at="0"><span class="mono">00:00</span><b>인트로</b></button></li>
+          <li><button type="button" data-reel-open data-reel-at="8"><span class="mono">00:08</span><b>하나의 워크플로우</b></button></li>
+          <li><button type="button" data-reel-open data-reel-at="13.8"><span class="mono">00:13</span><b>SaaS 솔루션</b></button></li>
+          <li><button type="button" data-reel-open data-reel-at="28.2"><span class="mono">00:28</span><b>웹사이트 제작</b></button></li>
+          <li><button type="button" data-reel-open data-reel-at="38.5"><span class="mono">00:38</span><b>스튜디오 &amp; 문의</b></button></li>
+        </ol>
+      </div>
+    </section>
 
     <!-- STRIP -->
     <div id="strip-slot">
@@ -888,8 +937,24 @@
     </div>
   </footer>
 
+  <!-- SHOWREEL MODAL -->
+  <dialog class="reel-modal" id="reel-modal" aria-labelledby="reel-modal-title">
+    <div class="reel-modal__top">
+      <span class="reel-modal__title" id="reel-modal-title">JIUM LABS — SHOWREEL 2026</span>
+      <div class="reel-modal__actions">
+        <a class="reel-modal__yt" href="https://www.youtube.com/@jieumlabs" target="_blank" rel="noopener noreferrer" aria-label="JIUM LABS 유튜브 채널 새 창에서 열기">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+          <span>유튜브 채널에서 더 보기</span>
+        </a>
+        <button type="button" class="reel-modal__close" aria-label="쇼릴 닫기" autofocus>닫기 <span aria-hidden="true">✕</span></button>
+      </div>
+    </div>
+    <video class="reel-modal__video" controls playsinline preload="none" poster="assets/showreel/showreel-poster.jpg?v=20260927_01"></video>
+  </dialog>
+
   <script src="tweaks.js?v=20260905_02"></script>
-  <script src="sections.js?v=20260905_02"></script>
+  <script src="sections.js?v=20260927_01"></script>
   <script src="sections2.js?v=20260905_02"></script>
+  <script src="showreel.js?v=20260927_01"></script>
 </body>
 </html>
