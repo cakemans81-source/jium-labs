@@ -101,7 +101,7 @@ const HERO = {
       </div>
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          ${["PartStream / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)이루 / 자동차 시트 목업", "— JIUM LABS 2026"].concat(["PartStream / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)이루 / 자동차 시트 목업", "— JIUM LABS 2026"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
+          ${["견적온 / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)이루 / 자동차 시트 목업", "— JIUM LABS 2026"].concat(["견적온 / 3D CAD 자동견적", "세일정밀산업 / 5축 정밀가공", "CAD Studio / 웹 3D 뷰어", "와이즈디자인 / 부천 플라스틱·AL CNC", "OrderFlow / 발주 파이프라인", "(주)이루 / 자동차 시트 목업", "— JIUM LABS 2026"]).map(t => `<span class="marquee__item">${t}</span>`).join("")}
         </div>
       </div>
     </section>
@@ -250,17 +250,17 @@ stripSlot.innerHTML = `
 const PROJECTS_SAAS = [
   {
     n: "01",
-    name: "PartStream",
-    domain: "partstream-pi.vercel.app",
+    name: "견적온",
+    domain: "eston.co.kr",
     category: "saas",
     catBadge: "[ B2B SAAS · 3D 견적 ]",
     status: "live",
     statusLabel: "운영 중",
-    tagline: "3D 도면 파일 업로드 즉시 자동 견적 계산 (견적온)",
+    tagline: "3D 도면 파일 업로드 즉시 자동 견적 계산",
     desc: "STL·STEP 파일을 자동 분석해 부피·면적·가공 난이도를 추출하고, 재료비·가공비·셋업비까지 투명하게 산출합니다. 거래명세서 PDF와 월정산 자동화로 견적부터 정산까지 한 흐름.",
     accent: "#818CF8",
     desktop: {
-      url: "partstream-pi.vercel.app",
+      url: "eston.co.kr",
       img: "assets/portfolio/partstream-pc.png"
     },
     mobile: {

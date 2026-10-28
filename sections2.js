@@ -94,7 +94,7 @@ faqSlot.innerHTML = `
         { q:"웹사이트 제작 외주나 맞춤형 웹 개발 의뢰가 가능한가요?",
           a:"네, 정밀가공, 시제품 목업, 제조 기술 기업 등 비즈니스 가치와 신뢰를 명확하게 전달해야 하는 기업의 맞춤형 웹사이트를 제작합니다. 세일정밀산업, 와이즈디자인, (주)이루 등의 구축 사례가 있으며 jiumlabs@jiumlabs.com으로 문의하실 수 있습니다." },
         { q:"어떤 B2B SaaS 솔루션을 개발하나요?",
-          a:"3D CAD 도면(STL, STEP)을 업로드하면 체적과 가공비를 실시간으로 자동 산출하는 'PartStream', 무설치 웹 3D 뷰어 'CAD Studio', 발주 및 거래명세서 자동화 파이프라인 'OrderFlow' 등을 개발·운영합니다." },
+          a:"3D CAD 도면(STL, STEP)을 업로드하면 체적과 가공비를 실시간으로 자동 산출하는 '견적온', 무설치 웹 3D 뷰어 'CAD Studio', 발주 및 거래명세서 자동화 파이프라인 'OrderFlow' 등을 개발·운영합니다." },
         { q:"이 사이트에서 바로 가입할 수 있나요?",
           a:"이 사이트에서는 가입이나 결제를 제공하지 않습니다. 이용 가능한 작업은 프로젝트 카드의 링크에서 확인할 수 있고, 아직 공개되지 않은 작업은 준비 중으로 표시합니다." },
         { q:"프로젝트는 어떻게 구분해 운영하나요?",
@@ -138,7 +138,7 @@ ctaSlot.innerHTML = `
         <span class="fb-promo__pdot" style="background:#818CF8"></span>
         <div>
           <div class="fb-promo__t">3D 도면 STL·STEP 파일 체적 자동 분석 속도 개선</div>
-          <div class="fb-promo__m mono">PartStream · 기능 개선</div>
+          <div class="fb-promo__m mono">견적온 · 기능 개선</div>
         </div>
       </div>
       <div class="fb-promo__card" aria-hidden="true">
